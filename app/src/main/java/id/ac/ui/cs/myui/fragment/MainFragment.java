@@ -33,7 +33,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-
+        //Event onClick to move to other Intent from fragment
         LinearLayout academicTrackerBtn = (LinearLayout) getView().findViewById(R.id.academic_tracker_btn);
         academicTrackerBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
