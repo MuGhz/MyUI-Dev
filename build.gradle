@@ -18,6 +18,14 @@ allprojects {
     }
 }
 
+ext {
+    buildToolsVersion = "25.0.3"
+    supportLibVersion = "25.3.0"
+    runnerVersion = "0.5"
+    rulesVersion = "0.5"
+    espressoVersion = "2.2.2"
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
