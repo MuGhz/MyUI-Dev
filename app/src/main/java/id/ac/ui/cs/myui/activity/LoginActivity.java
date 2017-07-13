@@ -1,4 +1,4 @@
-package id.ac.ui.cs.myui;
+package id.ac.ui.cs.myui.activity;
 
 /**
  * Created by hafiyyansayyidfadhlillah on 7/12/17.
@@ -10,12 +10,16 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
+import id.ac.ui.cs.myui.R;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        setTitle("Halaman Login");
 
         Button loginButton = (Button) findViewById(R.id.login);
         loginButton.setOnClickListener(new View.OnClickListener(){

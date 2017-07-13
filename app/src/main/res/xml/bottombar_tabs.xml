@@ -1,14 +1,14 @@
 <tabs>
     <tab
         icon="@drawable/shape"
-        id="@+id/tab_favorites"
+        id="@+id/tab_menu"
         title="Menu" />
     <tab
         icon="@drawable/shape_1"
-        id="@+id/tab_nearby"
+        id="@+id/tab_jadwal"
         title="Jadwal Kuliah" />
     <tab
         icon="@drawable/shape_2"
-        id="@+id/tab_friends"
+        id="@+id/tab_identitas"
         title="Identitas" />
 </tabs>
