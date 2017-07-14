@@ -43,3 +43,5 @@ Berikut adalah _field_ yang diharapkan ada pada halaman Identitas :
 
 - Silahkan implementasi _redirection tab_ yang sesuai ( Ketika memilih suatu tab apapun, ketika ditekan tombol back maka 
 halaman yang dimunculkan adalah halaman _login_, saat ini _logic_ tersebut belum diimplementasikan)
+
+All Right Reserved to Team Fasilkom UI
