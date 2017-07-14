@@ -33,7 +33,7 @@ Terdapat 2 _Fragment_ utama yang telah disediakan :
 
 Untuk saat ini kalian diminta untuk mengimplementasikan :
 
-[] Silahkan implementasi untuk _tab_ identitas. Untuk format halamant tersebut silahkan gunakan kreasi kalian.
+[ ] Silahkan implementasi untuk _tab_ identitas. Untuk format halamant tersebut silahkan gunakan kreasi kalian.
 Berikut adalah _field_ yang diharapkan ada pada halaman Identitas :
 
     - Nama
@@ -41,7 +41,7 @@ Berikut adalah _field_ yang diharapkan ada pada halaman Identitas :
     - Jurusan
     - Program (S1 Reguler, S1 Paralel, dsb)
 
-[] Silahkan implementasi _redirection tab_ yang sesuai ( Ketika memilih suatu tab apapun, ketika ditekan tombol back maka 
+[ ] Silahkan implementasi _redirection tab_ yang sesuai ( Ketika memilih suatu tab apapun, ketika ditekan tombol back maka 
 halaman yang dimunculkan adalah halaman _login_, saat ini _logic_ tersebut belum diimplementasikan)
 
-[] Ubah nama "Ilyas" pada halaman utama menjadi username yang dimasukkan ketika login
+[ ] Ubah nama "Ilyas" pada halaman utama menjadi username yang dimasukkan ketika login
