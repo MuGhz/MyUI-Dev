@@ -36,7 +36,7 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:' + rootProject.runnerVersion;
     androidTestCompile 'com.android.support.test:rules:' + rootProject.rulesVersion;
     androidTestCompile 'com.android.support.test.espresso:espresso-core:' + rootProject.espressoVersion;
-
+    androidTestCompile 'com.android.support.test.espresso:espresso-intents:' + rootProject.espressoVersion;
     compile 'com.android.support:appcompat-v7:25.0.3'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
     testCompile 'junit:junit:4.12'
