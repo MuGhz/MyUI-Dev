@@ -63,12 +63,12 @@ Codebase MyUI
    - When you importing some module or package, use full path import so we can make sure what package are imported,
    unless it's come from Java Standard Library
    
-   ```java
+    ```java
       import android.support.v4.app.*; //Doesn't know which pacakage is needed, so it's bad
       import android.support.v4.app.Fragment //Fragment with compat support is imported
-      ```
+    ```
    
-   - Use proper Naming Convention
+  - Use proper Naming Convention
    
    ```java
       public static final int SOME_CONSTANT = 42; //For Final variable, use all Uppercase Letter
