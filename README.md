@@ -67,15 +67,14 @@ Codebase MyUI
       import android.support.v4.app.*; //Doesn't know which pacakage is needed, so it's bad
       import android.support.v4.app.Fragment //Fragment with compat support is imported
     ```
-   
-  - Use proper Naming Convention
+
+   - Use proper Naming Convention
    
    ```java
       public static final int SOME_CONSTANT = 42; //For Final variable, use all Uppercase Letter
       private static MyClass sSingleton; //When using staticm use s at the beginning of name
       private int mPrivate; // When using non-public/non-static, use m at the beginning of name
       public int publicField; //Others, use lowercase at first word
-   
    ```
    - Use TODO Comments when you're creating a temporary solution (line of code, or function) to make
    an understanding to next developer that this function needs some fixing
