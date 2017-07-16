@@ -18,6 +18,10 @@ import id.ac.ui.cs.myui.activity.LoginActivity;
  * Created by faisalagustp on 7/13/17.
  */
 
+/**
+ * This class define Menu tab logic
+ * You may have to fix this class or maybe delete it if you think necessary
+ */
 public class MainFragment extends Fragment {
 
     @Override

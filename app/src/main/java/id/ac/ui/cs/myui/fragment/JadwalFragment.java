@@ -12,6 +12,9 @@ import id.ac.ui.cs.myui.R;
  * Created by faisalagustp on 7/13/17.
  */
 
+/**
+ * This class defining Logic of JadwalPage when tab Jadwal is tapped
+ */
 public class JadwalFragment extends Fragment {
 
     @Override

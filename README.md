@@ -1,47 +1,105 @@
-**Codebase MyUI**
--
+Codebase MyUI
+=====
 
-Spesifikasi :
+### Specification
+
 
 - Target SDK : Marshmallow (25)
 - Minimum SDK : Ice Cream Sandwich (15)
-
-Terdapat 3 _Activity_ utama yang telah disediakan :
-
-- LoginActivity
-
-    _Logic_ untuk _login_ diimplementasikan di _activity_ ini
-
-- HomeActivity
-
-    _Logic_ untuk halaman utama (Termasuk _behaviour_ dari _Footer Tab_) diimplementasikan di _activity_ ini
+- Installed Library :
+    1. [Roughike Bottombar](https://github.com/roughike/BottomBar)
+        
+        Defining footer tab with much easier way.
+        
+    2. [Retrofit](square.github.io/retrofit/)
     
-- DetailActivity
+        Tool for getting Http Request
+    
+    3. [GSON](https://github.com/google/gson)
+    
+        Convert a Response from Retrofit into Gson, and can be converted into JSON Format
+    
+    4. [JUnit](http://junit.org/junit4/)
 
-    _Activity_ yang dijalankan ketika _button Academic Tracker_ di tekan
+        Simple framework to write repeatable tests
+    
+    5. [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/)
+    
+        Tool for creating Instrumental tests
+    
+### Development Guideline
 
-Terdapat 2 _Fragment_ utama yang telah disediakan :
+1. Test Driven Development
+2. Coding Guideline (For further information please visit this [link](https://source.android.com/source/code-style))
+   - Never write a code that doesn't handle an exception, always make sure that you catch every exception and
+   give some feedback to user when that happen (Exception handling)
+   
+   ```java
+   /** Set port. If value is not a valid number, 80 is substituted. */
+   
+   void setServerPort(String value) {
+       try {
+           serverPort = Integer.parseInt(value);
+       } catch (NumberFormatException e) {
+           serverPort = 80;  // default port for server
+       }
+   }
+   ```
+   
+   - When handling exception, make sure that you doesn't use Generic Exception as a way to catch those exception,
+   unless you doesn't sure what kind of error will be raised on the code
+   
+   ```java
+   try {
+       gettingDatafromAPI();        // may throw HttpException
+       convertDataToJSON();   // may throw ParsingException
+       calculateItAndReturn();  // may throw NumberFormatException
+       // phew, made it all the way
+   } catch (Exception e) {                 // I'll just catch all exceptions
+       handleError();                      // with one generic handler!
+   }   
+   ```
+   
+   - When you importing some module or package, use full path import so we can make sure what package are imported,
+   unless it's come from Java Standard Library
+   
+   ```java
+      import android.support.v4.app.*; //Doesn't know which pacakage is needed, so it's bad
+      import android.support.v4.app.Fragment //Fragment with compat support is imported
+      ```
+   
+   - Use proper Naming Convention
+   
+   ```java
+      public static final int SOME_CONSTANT = 42; //For Final variable, use all Uppercase Letter
+      private static MyClass sSingleton; //When using staticm use s at the beginning of name
+      private int mPrivate; // When using non-public/non-static, use m at the beginning of name
+      public int publicField; //Others, use lowercase at first word
+   
+   ```
+   - Use TODO Comments when you're creating a temporary solution (line of code, or function) to make
+   an understanding to next developer that this function needs some fixing
 
-- MainFragment
+3. Clean Code (I'll only write some main points that I think it's important to remember, for further information, please read Books about Clean Code)
+    
+    1. Create a **Meaningfull Names** when you create a function, class, or variable
+    2. Create a **Function that handle 1 specific task** instead of 1 function for many task
+    3. Create a **Comments** for every important parts of code, to make an easier understanding of code
+    4. Create a **Code that Self Explained** to make the code easier to read
+    5. Create many **Small Function** when solving some problem is easier to do rather than creating 
+    1 large function. It's also easier to maintain if you have this kind of function
 
-    _Fragment_ yang dijalankan ketika _tab_ Menu aktif
+### API Access 
 
-- JadwalFragment
+API that will be used for this project is : [API CS](https://api.cs.ui.ac.id/)
 
-    _Fragment_ yang dijalankan ketika _tab_ Jadwal Kuliah aktif
+... to be continue
 
+### Virutal Machine (Server)
 
-Untuk saat ini kalian diminta untuk mengimplementasikan :
+We Prepare a VM for you, if you think that you need it for solving some task (such as creating additional
+backend, or creating a proxy API)
 
-- Silahkan implementasi untuk _tab_ identitas. Untuk format halamant tersebut silahkan gunakan kreasi kalian.
-Berikut adalah _field_ yang diharapkan ada pada halaman Identitas :
-
-    - Nama
-    - NPM
-    - Jurusan
-    - Program (S1 Reguler, S1 Paralel, dsb)
-
-- Silahkan implementasi _redirection tab_ yang sesuai ( Ketika memilih suatu tab apapun, ketika ditekan tombol back maka 
-halaman yang dimunculkan adalah halaman _login_, saat ini _logic_ tersebut belum diimplementasikan)
-
+... to be continue
+    
 All Right Reserved to Team Fasilkom UI

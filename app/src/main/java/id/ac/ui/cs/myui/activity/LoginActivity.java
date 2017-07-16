@@ -12,6 +12,10 @@ import android.content.Intent;
 
 import id.ac.ui.cs.myui.R;
 
+/**
+ * This class defining Login page Logic
+ * This class also need some fixing because Login logic isn't actually complete
+ */
 public class LoginActivity extends AppCompatActivity {
 
     @Override

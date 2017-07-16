@@ -12,6 +12,11 @@ import id.ac.ui.cs.myui.R;
 import id.ac.ui.cs.myui.fragment.JadwalFragment;
 import id.ac.ui.cs.myui.fragment.MainFragment;
 
+
+/**
+ * This class is used for Homepage logic
+ * The footer tab logic also defined here
+ */
 public class HomeActivity extends AppCompatActivity {
 
     @Override
@@ -29,6 +34,8 @@ public class HomeActivity extends AppCompatActivity {
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
+
+                //Checking tab Id that has been tapped
                 if (tabId == R.id.tab_menu) {
                     //Use MainFragment
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

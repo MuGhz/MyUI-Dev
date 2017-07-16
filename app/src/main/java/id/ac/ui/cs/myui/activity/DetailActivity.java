@@ -10,6 +10,10 @@ import id.ac.ui.cs.myui.R;
  * Created by faisalagustp on 7/13/17.
  */
 
+/**
+ * This class is used as a Response of pushing Academic Tracker button in HomeActivity
+ * You may change or delete this class in the future if it's necessary
+ */
 public class DetailActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +23,8 @@ public class DetailActivity extends AppCompatActivity {
 
         //Set title bar
         setTitle("My Academic Tracker");
-        //Set back button
+
+        //Set back button redirection
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
