@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //set title bar
+        
         setTitle("Halaman Login");
 
         //set action if login button clicked
