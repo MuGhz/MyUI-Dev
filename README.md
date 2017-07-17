@@ -30,9 +30,18 @@ Codebase MyUI
 ### Development Guideline
 
 1. Test Driven Development
-2. Coding Guideline (For further information please visit this [link](https://source.android.com/source/code-style))
-   - Never write a code that doesn't handle an exception, always make sure that you catch every exception and
-   give some feedback to user when that happen (Exception handling)
+2. Clean Code (I'll only write some main points that I think it's important to remember, for further information, please read Books about Clean Code)
+    
+    1. Create a **Meaningfull Names** when you create a function, class, or variable
+    2. Create a **Function that handle 1 specific task** instead of 1 function for many task
+    3. Create a **Comments** for every important parts of code, to make an easier understanding of code
+    4. Create a **Code that Self Explained** to make the code easier to read
+    5. Create many **Small Function** when solving some problem is easier to do rather than creating 
+    1 large function. It's also easier to maintain if you have this kind of function
+
+3. Coding Guideline (For further information please visit this [link](https://source.android.com/source/code-style))
+
+   - Never write a code that doesn't handle an exception, always make sure that you catch every exception and give some feedback to user when that happen (Exception handling)
    
    ```java
    /** Set port. If value is not a valid number, 80 is substituted. */
@@ -62,7 +71,7 @@ Codebase MyUI
    
    - When you importing some module or package, use full path import so we can make sure what package are imported,
    unless it's come from Java Standard Library
-   
+    
     ```java
       import android.support.v4.app.*; //Doesn't know which pacakage is needed, so it's bad
       import android.support.v4.app.Fragment //Fragment with compat support is imported
@@ -79,14 +88,7 @@ Codebase MyUI
    - Use TODO Comments when you're creating a temporary solution (line of code, or function) to make
    an understanding to next developer that this function needs some fixing
 
-3. Clean Code (I'll only write some main points that I think it's important to remember, for further information, please read Books about Clean Code)
-    
-    1. Create a **Meaningfull Names** when you create a function, class, or variable
-    2. Create a **Function that handle 1 specific task** instead of 1 function for many task
-    3. Create a **Comments** for every important parts of code, to make an easier understanding of code
-    4. Create a **Code that Self Explained** to make the code easier to read
-    5. Create many **Small Function** when solving some problem is easier to do rather than creating 
-    1 large function. It's also easier to maintain if you have this kind of function
+
 
 ### API Access 
 
