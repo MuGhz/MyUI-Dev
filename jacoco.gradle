@@ -49,8 +49,8 @@ project.afterEvaluate {
                 executionData = files("${project.buildDir}/jacoco/${testTaskName}.exec")
 
                 reports {
-                    xml.enabled = true
-                    html.enabled = false
+                    xml.enabled = false
+                    html.enabled = true
                 }
             }
         }
