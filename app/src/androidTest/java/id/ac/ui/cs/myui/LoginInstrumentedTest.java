@@ -14,6 +14,7 @@ import id.ac.ui.cs.myui.activity.LoginActivity;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -34,7 +35,7 @@ public class LoginInstrumentedTest {
     @Before
     public void initValidString() {
         // Specify a valid string.
-        mButtonTextExpected = "Login QR";
+        mButtonTextExpected = "Login";
     }
 
     @Test
@@ -45,6 +46,8 @@ public class LoginInstrumentedTest {
 
     @Test
     public void clickLogin_showHomeActivity(){
+        onView(withId(R.id.username)).perform(typeText("Username"), closeSoftKeyboard());
+        onView(withId(R.id.password)).perform(typeText("Password"), closeSoftKeyboard());
         onView(withId(R.id.login)).perform(click());
         onView(withId(R.id.bottomBar)).check(matches(isDisplayed()));
     }
