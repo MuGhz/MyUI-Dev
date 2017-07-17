@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import id.ac.ui.cs.myui.R;
+import id.ac.ui.cs.myui.activity.CalendarDetailActivity;
 import id.ac.ui.cs.myui.activity.DetailActivity;
 import id.ac.ui.cs.myui.activity.HomeActivity;
 import id.ac.ui.cs.myui.activity.LoginActivity;
@@ -41,7 +42,7 @@ public class MainFragment extends Fragment {
         LinearLayout academicTrackerBtn = (LinearLayout) getView().findViewById(R.id.academic_tracker_btn);
         academicTrackerBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(getActivity(), DetailActivity.class);
+                Intent i = new Intent(getActivity(), CalendarDetailActivity.class);
                 getActivity().startActivity(i);
             }
         });
