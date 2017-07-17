@@ -116,12 +116,12 @@ Here's the summary of build status and code coverage from important branch :
 
 1. **Master**
 
-    - Build Status : [![build status](https://gitlab.com/hafiyyan94/MyUI/badges/master/build.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/master)
-    - Code Coverage : [![coverage report](https://gitlab.com/hafiyyan94/MyUI/badges/master/coverage.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/master)
+    [![build status](https://gitlab.com/hafiyyan94/MyUI/badges/master/build.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/master)
+    [![coverage report](https://gitlab.com/hafiyyan94/MyUI/badges/master/coverage.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/master)
 
 2. **Development**
 
-    - Build Status : [![build status](https://gitlab.com/hafiyyan94/MyUI/badges/master/build.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/development)
-    - Code Coverage : [![coverage report](https://gitlab.com/hafiyyan94/MyUI/badges/master/coverage.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/development)
+    [![build status](https://gitlab.com/hafiyyan94/MyUI/badges/master/build.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/development)
+    [![coverage report](https://gitlab.com/hafiyyan94/MyUI/badges/master/coverage.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/development)
     
 All Right Reserved to Team Fasilkom UI
