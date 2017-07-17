@@ -92,7 +92,7 @@ Codebase MyUI
 
 API that will be used for this project is : [API CS](https://api.cs.ui.ac.id/)
 
-... to be continue
+You can see this [link](https://api-dev.cs.ui.ac.id/how-to-use/) if you want to see how to access API CS
 
 ### Virutal Machine (Server)
 
