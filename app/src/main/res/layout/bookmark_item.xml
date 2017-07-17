@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dip">
+    <ImageView
+        android:src="@drawable/newspaper"
+        android:layout_height="75dp"
+        android:layout_width="75dp"
+        android:layout_marginRight="10dip"
+        android:layout_gravity="center_vertical"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="[MIK] Mengingatkan:"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Penulis"
+            android:textStyle="italic"
+            android:textSize="14sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Monday, 10 July 2017, 10:51 AM"/>
+        <TextView
+            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:text="Ysh Rekan-rekan mahasiswa/i MIK yang mengerjakan tesis semester ini,
+
+Kembali mengingatkan mengenai penerapan aturan kewajiban makalah ilmiah sebagai persyaratan kelulusan program Magister Ilmu Komputer, sebagaimana peraturan SK Rektor UI No 0015 tahun 2016 tentang Penyelenggaraan Program"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
