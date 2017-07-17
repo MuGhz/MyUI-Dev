@@ -10,4 +10,4 @@ stages:
 unitTests:
   stage: test
   script:
-    - ./gradlew test
+    - ./gradlew testDebugUnitTestCoverage
