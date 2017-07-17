@@ -88,7 +88,12 @@ Codebase MyUI
    - Use TODO Comments when you're creating a temporary solution (line of code, or function) to make
    an understanding to next developer that this function needs some fixing
 
+4. To maintain high **Code Coverage** (which is important), make sure to:
 
+    - Write **Unit Test** that cover all lines in function
+    - Separate code that doesn't involved in **Unit Testing** (Read more about Unit Testing to understand it)
+    into another package, and then exclude those package from **Code Coverage Report**
+    - To exclude the package that doesn't need to be reported, please see file **jacoco.gradle** and see **classDirectories**, part **excludes**  
 
 ### API Access 
 
@@ -96,11 +101,27 @@ API that will be used for this project is : [API CS](https://api.cs.ui.ac.id/)
 
 You can see this [link](https://api-dev.cs.ui.ac.id/how-to-use/) if you want to see how to access API CS
 
-### Virutal Machine (Server)
+### Virtual Machine (Server)
 
 We Prepare a VM for you, if you think that you need it for solving some task (such as creating additional
 backend, or creating a proxy API)
 
 ... to be continue
+
+### Build Status and Code Coverage
+
+Make sure that Build Status are Success and Code Coverage is High
+
+Here's the summary of build status and code coverage from important branch :
+
+1. **Master**
+
+    - Build Status : [![build status](https://gitlab.com/hafiyyan94/MyUI/badges/master/build.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/master)
+    - Code Coverage : [![coverage report](https://gitlab.com/hafiyyan94/MyUI/badges/master/coverage.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/master)
+
+2. **Development**
+
+    - Build Status : [![build status](https://gitlab.com/hafiyyan94/MyUI/badges/master/build.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/development)
+    - Code Coverage : [![coverage report](https://gitlab.com/hafiyyan94/MyUI/badges/master/coverage.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/development)
     
 All Right Reserved to Team Fasilkom UI
