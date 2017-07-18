@@ -21,30 +21,37 @@ import java.util.List;
 
 import id.ac.ui.cs.myui.R;
 import id.ac.ui.cs.myui.adapter.ListCalendarAdapter;
-import id.ac.ui.cs.myui.model.ListCalendarItem;
+import id.ac.ui.cs.myui.helper.DatabaseHelper;
+import id.ac.ui.cs.myui.model.CalendarItem;
 import id.ac.ui.cs.myui.task.CalendarTask;
 
 public class CalendarActivity extends AppCompatActivity {
 
+    private DatabaseHelper dbHelper;
+    final String URL = "https://academic.ui.ac.id/main/Authentication/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calender);
+       setContentView(R.layout.activity_calender);
 
         Context ctx = getApplicationContext();
+        dbHelper = new DatabaseHelper(ctx);
 
+
+        new CalendarTask(CalendarActivity.this).execute();
         ListView tanggalList = (ListView) findViewById(R.id.list_tanggal);
 
-        List<ListCalendarItem> myCalendar = null; //Harus ambil data dari service
-        ListAdapter adapter = new ListCalendarAdapter(this, R.layout.content_calender, (ArrayList<ListCalendarItem>) myCalendar);
+        List<CalendarItem> myCalendar = dbHelper.getAllParentMenu(); //Harus ambil data dari serviceL
+     //   Log.i("CALENDAR ACTIVITY", myCalendar.toString());
+        ListAdapter adapter = new ListCalendarAdapter(this, R.layout.content_calender, (ArrayList<CalendarItem>) myCalendar);
         tanggalList.setAdapter(adapter);
         tanggalList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-                Intent intent = new Intent(/*this, HomeActivity.class*/);  //Harus tau data yang diterima detail calendar
-                startActivity(intent);
+//                Intent intent = new Intent(startActivity());
             }
         });
 

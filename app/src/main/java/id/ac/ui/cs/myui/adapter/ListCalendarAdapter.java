@@ -15,18 +15,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import id.ac.ui.cs.myui.R;
-import id.ac.ui.cs.myui.model.ListCalendarItem;
-
+import id.ac.ui.cs.myui.model.CalendarItem;
 /**
  * Created by Ivan on 7/17/17.
  */
 
 public class ListCalendarAdapter extends ArrayAdapter {
     private final LayoutInflater layoutInflater;
-    private ArrayList<ListCalendarItem> listCalendarItems;
+    private ArrayList<CalendarItem> listCalendarItems;
 
 
-    public ListCalendarAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<ListCalendarItem> listCalendarItems) {
+    public ListCalendarAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<CalendarItem> listCalendarItems) {
         super(context, resource, listCalendarItems);
         this.layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.listCalendarItems = listCalendarItems;
@@ -39,11 +38,11 @@ public class ListCalendarAdapter extends ArrayAdapter {
 
     @Nullable
     @Override
-    public ListCalendarItem getItem(int position) {
+    public CalendarItem getItem(int position) {
         return listCalendarItems.get(position);
     }
 
-    public int getPosition(@Nullable ListCalendarItem item) {
+    public int getPosition(@Nullable CalendarItem item) {
         return listCalendarItems.indexOf(item);
     }
 
@@ -56,13 +55,15 @@ public class ListCalendarAdapter extends ArrayAdapter {
         else
             layout = (LinearLayout) convertView;
         TextView label = (TextView) layout.findViewById(R.id.calendarItem_label);
-        TextView desc = (TextView) layout.findViewById(R.id.calendarItem_desc);
+        TextView tanggalMulai = (TextView) layout.findViewById(R.id.tanggalnyamulai);
+        TextView tanggalSelesai = (TextView) layout.findViewById(R.id.tanggalnyaselesai);
         layout.setId(position);
 
-        ListCalendarItem listCalendarItem = listCalendarItems.get(position);
+        CalendarItem listCalendarItem = listCalendarItems.get(position);
 
         label.setText(listCalendarItem.getNamaKegiatan());
-        desc.setText(listCalendarItem.getTanggalKegiatan());
+        tanggalMulai.setText(listCalendarItem.getTanggalMulai());
+        tanggalSelesai.setText(listCalendarItem.getTanggalSelesai());
         return layout;
     }
 }
