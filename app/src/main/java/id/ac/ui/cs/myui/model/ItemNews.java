@@ -87,10 +87,6 @@ public class ItemNews {
         return penulis[1];
     }
 
-    public String stripHtml(String html) {
-       return Html.fromHtml(html).toString().replaceAll("\n", "").trim();
-    }
-
     public String getContent(){
         String raw = getDescription();
         String [] subRaw = raw.split("\\. ");
@@ -100,7 +96,8 @@ public class ItemNews {
             akhir += subRaw[i];
         }
 
-        return stripHtml(akhir);
+        return akhir;
 
     }
 }
+

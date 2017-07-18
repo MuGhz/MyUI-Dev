@@ -1,5 +1,8 @@
 package id.ac.ui.cs.myui.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by agni.wira on 18/07/17.
  */
@@ -68,5 +71,6 @@ public class News {
     public void setPenulis(String penulis) {
         this.penulis = penulis;
     }
+
 }
 
