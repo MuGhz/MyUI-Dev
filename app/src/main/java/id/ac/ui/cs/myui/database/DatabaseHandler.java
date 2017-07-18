@@ -99,9 +99,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(COLUMN_PENULIS, news.getPenulis());
         values.put(COLUMN_LINK,news.getLink());
         if(news.isBookmarked() ){
-            values.put(COLUMN_BOOKMARKED, 1);
-        } else {
             values.put(COLUMN_BOOKMARKED, 0);
+        } else {
+            values.put(COLUMN_BOOKMARKED, 1);
         }
         // updating row
         db.update(TABLE_NEWS, values, COLUMN_ID + " = ?",
