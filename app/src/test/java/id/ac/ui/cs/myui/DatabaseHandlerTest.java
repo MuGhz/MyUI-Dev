@@ -51,9 +51,9 @@ public class DatabaseHandlerTest {
         News news2 = new News();
         News news3 = new News();
 
-        news1.setNewsTitle("test1");
-        news2.setNewsTitle("test2");
-        news3.setNewsTitle("test3");
+        news1.setTitle("test1");
+        news2.setTitle("test2");
+        news3.setTitle("test3");
 
         news1.setBookmarked(true);
         news2.setBookmarked(true);

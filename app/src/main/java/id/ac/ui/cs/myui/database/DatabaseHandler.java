@@ -26,19 +26,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_NEWS = "news";
 
     // User Table Columns names
-    private static final String COLUMN_NEWSID = "newsId";
-    private static final String COLUMN_NEWSTITLE = "newsTitle";
-    private static final String COLUMN_NEWSCONTENT = "newsContent";
-    private static final String COLUMN_NEWSDATE = "newsDate";
-    private static final String COLUMN_NEWSDATEEDITED = "newsDateEdited";
-    private static final String COLUMN_NEWSSUBMITBY = "newsSubmitBy";
-    private static final String COLUMN_NEWSEDITEDBY = "newsEditedBy";
+    private static final String COLUMN_ID = "id";
+    private static final String COLUMN_TITLE = "title";
+    private static final String COLUMN_DESCRIPTION = "description";
+    private static final String COLUMN_TANGGAL = "tanggal";
+    private static final String COLUMN_PENULIS = "penulis";
     private static final String COLUMN_BOOKMARKED = "bookmarked";
+    private static final String COLUMN_LINK = "link";
     // create table sql query
     private String CREATE_NEWS_TABLE = "CREATE TABLE " + TABLE_NEWS + "("
-            + COLUMN_NEWSID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_NEWSTITLE + " TEXT,"
-            + COLUMN_NEWSCONTENT + " TEXT," + COLUMN_NEWSDATE + " TEXT," + COLUMN_NEWSDATEEDITED + " TEXT," +
-            COLUMN_NEWSSUBMITBY + " TEXT," + COLUMN_NEWSEDITEDBY + " TEXT,"+ COLUMN_BOOKMARKED + " INT"+")";
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_TITLE + " TEXT,"
+            + COLUMN_DESCRIPTION + " TEXT," + COLUMN_TANGGAL + " TEXT,"  +
+            COLUMN_PENULIS + " TEXT,"+ COLUMN_BOOKMARKED + " INT,"+ COLUMN_LINK +" TEXT"+")";
 
     // drop table sql query
     private String DROP_NEWS_TABLE = "DROP TABLE IF EXISTS " + TABLE_NEWS;
@@ -73,12 +72,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NEWSTITLE, news.getNewsTitle());
-        values.put(COLUMN_NEWSCONTENT , news.getNewsContent());
-        values.put(COLUMN_NEWSDATE, news.getNewsDate());
-        values.put(COLUMN_NEWSDATEEDITED, news.getNewsDateEdited());
-        values.put(COLUMN_NEWSSUBMITBY, news.getNewsSubmitBy());
-        values.put(COLUMN_NEWSEDITEDBY, news.getNewsEditedBy());
+        values.put(COLUMN_TITLE, news.getTitle());
+        values.put(COLUMN_DESCRIPTION , news.getDescription());
+        values.put(COLUMN_TANGGAL, news.getTanggal());
+        values.put(COLUMN_PENULIS, news.getPenulis());
+        values.put(COLUMN_LINK,news.getLink());
+
         if(news.isBookmarked() ){
             values.put(COLUMN_BOOKMARKED, 1);
         } else {
@@ -94,20 +93,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NEWSTITLE, news.getNewsTitle());
-        values.put(COLUMN_NEWSCONTENT , news.getNewsContent());
-        values.put(COLUMN_NEWSDATE, news.getNewsDate());
-        values.put(COLUMN_NEWSDATEEDITED, news.getNewsDateEdited());
-        values.put(COLUMN_NEWSSUBMITBY, news.getNewsSubmitBy());
-        values.put(COLUMN_NEWSEDITEDBY, news.getNewsEditedBy());
+        values.put(COLUMN_TITLE, news.getTitle());
+        values.put(COLUMN_DESCRIPTION , news.getDescription());
+        values.put(COLUMN_TANGGAL, news.getTanggal());
+        values.put(COLUMN_PENULIS, news.getPenulis());
+        values.put(COLUMN_LINK,news.getLink());
         if(news.isBookmarked() ){
             values.put(COLUMN_BOOKMARKED, 1);
         } else {
             values.put(COLUMN_BOOKMARKED, 0);
         }
         // updating row
-        db.update(TABLE_NEWS, values, COLUMN_NEWSID + " = ?",
-                new String[]{String.valueOf(news.getNewsId())});
+        db.update(TABLE_NEWS, values, COLUMN_ID + " = ?",
+                new String[]{String.valueOf(news.getId())});
         db.close();
     }
 
@@ -119,18 +117,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<News> getAllBookmarkedNews() {
         // array of columns to fetch
         String[] columns = {
-                COLUMN_NEWSID,
-                COLUMN_NEWSTITLE,
-                COLUMN_NEWSCONTENT,
-                COLUMN_NEWSDATE,
-                COLUMN_NEWSDATEEDITED,
-                COLUMN_NEWSSUBMITBY,
-                COLUMN_NEWSEDITEDBY,
-                COLUMN_BOOKMARKED
+                COLUMN_ID,
+                COLUMN_TITLE,
+                COLUMN_DESCRIPTION,
+                COLUMN_TANGGAL,
+                COLUMN_PENULIS,
+                COLUMN_BOOKMARKED,
+                COLUMN_LINK
         };
         // sorting orders
         String sortOrder =
-                COLUMN_NEWSID + " ASC";
+                COLUMN_ID + " ASC";
         List<News> bookmarkedNewsList = new ArrayList<News>();
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -154,13 +151,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 News news = new News();
-                news.setNewsId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_NEWSID))));
-                news.setNewsTitle(cursor.getString(cursor.getColumnIndex(COLUMN_NEWSTITLE)));
-                news.setNewsContent(cursor.getString(cursor.getColumnIndex(COLUMN_NEWSCONTENT)));
-                news.setNewsDate(cursor.getString(cursor.getColumnIndex(COLUMN_NEWSDATE)));
-                news.setNewsDateEdited(cursor.getString(cursor.getColumnIndex(COLUMN_NEWSDATEEDITED)));
-                news.setNewsSubmitBy(cursor.getString(cursor.getColumnIndex(COLUMN_NEWSSUBMITBY)));
-                news.setNewsEditedBy(cursor.getString(cursor.getColumnIndex(COLUMN_NEWSEDITEDBY)));
+                news.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_ID))));
+                news.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
+                news.setDescription(cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)));
+                news.setTanggal(cursor.getString(cursor.getColumnIndex(COLUMN_TANGGAL)));
+                news.setPenulis(cursor.getString(cursor.getColumnIndex(COLUMN_PENULIS)));
+                news.setLink(cursor.getString(cursor.getColumnIndex(COLUMN_LINK)));
                 if(cursor.getInt(cursor.getColumnIndex(COLUMN_BOOKMARKED)) >0){
                     news.setBookmarked(true);
                 } else {
