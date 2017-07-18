@@ -5,6 +5,7 @@ package id.ac.ui.cs.myui.model;
  */
 
 public class News {
+    private String id;
     private String newsTitle;
     private String newsContent;
     private String newsDate;
@@ -21,6 +22,14 @@ public class News {
         this.newsSubmitBy = newsSubmitBy;
         this.newsEditedBy = newsEditedBy;
         this.bookmarked = false;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNewsTitle() {

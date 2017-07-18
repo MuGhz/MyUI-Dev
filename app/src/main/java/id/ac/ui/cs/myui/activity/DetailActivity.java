@@ -20,7 +20,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_detail);
-          setContentView(R.layout.activity_calender);
+//        setContentView(R.layout.activity_calender);
 
         //Set title bar
         setTitle("My Academic Tracker");
