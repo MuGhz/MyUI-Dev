@@ -33,8 +33,10 @@ public class Channel {
     @Element(name = "image",required = false)
     public ImageNews image;
 
-    @Element(name = "item",required = false)
+    @ElementList(name = "item", inline = true, required = false)
     public ItemNews item;
+
+    public Channel() {}
 
     public Channel(String title, String link, String description, String generator, String language, String copyright, ImageNews image, ItemNews item) {
         this.title = title;

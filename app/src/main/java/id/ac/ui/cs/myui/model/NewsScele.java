@@ -13,6 +13,7 @@ public class NewsScele {
     @Element(name = "channel")
     public Channel channel;
 
+    public NewsScele() {}
 
     public NewsScele(Channel channel) {
         this.channel = channel;

@@ -1,6 +1,6 @@
 package id.ac.ui.cs.myui.model;
 
-import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Path;
 import org.simpleframework.xml.Root;
 
 /**
@@ -8,19 +8,19 @@ import org.simpleframework.xml.Root;
  */
 @Root(name = "item",strict = false)
 public class ItemNews {
-    @Element(name = "title")
+    @Path("title")
     String title;
 
-    @Element(name = "link")
+    @Path("link")
     String link;
 
-    @Element(name = "pubdate")
+    @Path("pubdate")
     String pubdate;
 
-    @Element(name = "description")
+    @Path("description")
     String description;
 
-    @Element(name = "guid")
+    @Path("guid")
     String guid;
 
     public ItemNews(){};

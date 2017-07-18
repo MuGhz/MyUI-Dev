@@ -11,7 +11,7 @@ import retrofit2.http.GET;
  */
 
 public interface NewsService {
-    @GET("rss/file.php/31/d7770acd577a06a1a67cd40c160b88f6/mod_forum/1/rss.xml")
+    @GET("rss/file.php/31/666b240034aa3e621eb79626d3fc2b12/mod_forum/1/rss.xml")
     Call<NewsScele> listNewsScele();
 }
 
