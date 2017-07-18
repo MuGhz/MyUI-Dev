@@ -10,4 +10,9 @@ stages:
 unitTests:
   stage: test
   script:
-    - ./gradlew test
+    - ./gradlew testDebugUnitTestCoverage
+  artifacts:
+    paths:
+      - app/build/reports/jacoco/
+
+

@@ -7,30 +7,30 @@ Codebase MyUI
 - Target SDK : Marshmallow (25)
 - Minimum SDK : Ice Cream Sandwich (15)
 - Installed Library :
-    1. [Roughike Bottombar](https://github.com/roughike/BottomBar)
-        
-        Defining footer tab with much easier way.
-        
-    2. [Retrofit](square.github.io/retrofit/)
-    
-        Tool for getting Http Request
-    
+    1. [Roughike Bottombar](https://github.com/roughike/BottomBar) 
+        Defining footer tab with much easier way.    
+    2. [Retrofit](square.github.io/retrofit/) 
+        Tool for getting Http Request.
     3. [GSON](https://github.com/google/gson)
-    
-        Convert a Response from Retrofit into Gson, and can be converted into JSON Format
-    
+        Convert a Response from Retrofit into Gson, and can be converted into JSON Format.
     4. [JUnit](http://junit.org/junit4/)
-
-        Simple framework to write repeatable tests
-    
+        Simple framework to write repeatable tests.
     5. [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/)
-    
-        Tool for creating Instrumental tests
+        Tool for creating Instrumental tests.
+    6. [JaCoCo](https://github.com/jacoco/jacoco)
+        Tool for creating Code Coverage Report.
+    7. [Gradle Console Reporter](https://github.com/ksoichiro/gradle-console-reporter)
+        Print all Gradle Report into Console.
     
 ### Development Guideline
 
 1. Test Driven Development
-2. Clean Code (I'll only write some main points that I think it's important to remember, for further information, please read Books about Clean Code)
+2. To maintain high **Code Coverage** (which is important), make sure to:
+    - Write **Unit Test** that cover all lines in function
+    - Separate code that doesn't involved in **Unit Testing** (Read more about Unit Testing to understand it)
+    into another package, and then exclude those package from **Code Coverage Report**
+    - To exclude the package that doesn't need to be reported, please see file **jacoco.gradle** and see **classDirectories**, part **excludes** 
+3. Clean Code (I'll only write some main points that I think it's important to remember, for further information, please read Books about Clean Code)
     
     1. Create a **Meaningfull Names** when you create a function, class, or variable
     2. Create a **Function that handle 1 specific task** instead of 1 function for many task
@@ -39,7 +39,7 @@ Codebase MyUI
     5. Create many **Small Function** when solving some problem is easier to do rather than creating 
     1 large function. It's also easier to maintain if you have this kind of function
 
-3. Coding Guideline (For further information please visit this [link](https://source.android.com/source/code-style))
+4. Coding Guideline (For further information please visit this [link](https://source.android.com/source/code-style))
 
    - Never write a code that doesn't handle an exception, always make sure that you catch every exception and give some feedback to user when that happen (Exception handling)
    
@@ -88,19 +88,33 @@ Codebase MyUI
    - Use TODO Comments when you're creating a temporary solution (line of code, or function) to make
    an understanding to next developer that this function needs some fixing
 
-
-
 ### API Access 
 
 API that will be used for this project is : [API CS](https://api.cs.ui.ac.id/)
 
 You can see this [link](https://api-dev.cs.ui.ac.id/how-to-use/) if you want to see how to access API CS
 
-### Virutal Machine (Server)
+### Virtual Machine (Server)
 
 We Prepare a VM for you, if you think that you need it for solving some task (such as creating additional
 backend, or creating a proxy API)
 
 ... to be continue
+
+### Build Status and Code Coverage
+
+Make sure that Build Status are Success and Code Coverage is High
+
+Here's the summary of build status and code coverage from important branch :
+
+1. **Master**
+
+    [![build status](https://gitlab.com/hafiyyan94/MyUI/badges/master/build.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/master)
+    [![coverage report](https://gitlab.com/hafiyyan94/MyUI/badges/master/coverage.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/master)
+
+2. **Development**
+
+    [![build status](https://gitlab.com/hafiyyan94/MyUI/badges/master/build.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/development)
+    [![coverage report](https://gitlab.com/hafiyyan94/MyUI/badges/master/coverage.svg)](https://gitlab.com/hafiyyan94/MyUI/commits/development)
     
 All Right Reserved to Team Fasilkom UI
