@@ -101,9 +101,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(COLUMN_NEWSSUBMITBY, news.getNewsSubmitBy());
         values.put(COLUMN_NEWSEDITEDBY, news.getNewsEditedBy());
         if(news.isBookmarked() ){
-            values.put(COLUMN_BOOKMARKED, 1);
-        } else {
             values.put(COLUMN_BOOKMARKED, 0);
+        } else {
+            values.put(COLUMN_BOOKMARKED, 1);
         }
         // updating row
         db.update(TABLE_NEWS, values, COLUMN_NEWSID + " = ?",
