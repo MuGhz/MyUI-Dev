@@ -1,13 +1,20 @@
 package id.ac.ui.cs.myui.task;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ListView;
+import android.widget.RemoteViews;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import id.ac.ui.cs.myui.R;
+import id.ac.ui.cs.myui.activity.NewsHomeActivity;
+import id.ac.ui.cs.myui.adapter.NewsAdapter;
+import id.ac.ui.cs.myui.model.News;
 import id.ac.ui.cs.myui.model.NewsScele;
 import id.ac.ui.cs.myui.service.NewsService;
 import retrofit2.Call;
@@ -19,7 +26,7 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
  * Created by agni.wira on 17/07/17.
  */
 
-public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<NewsScele>> {
+public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
     private Context context;
 
     public NewsSceleTask(Context context) {
@@ -27,7 +34,7 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<NewsScele>>
     }
 
     @Override
-    protected ArrayList<NewsScele> doInBackground(Object... objects) {
+    protected ArrayList<News> doInBackground(Object... objects) {
         Retrofit client = new Retrofit.Builder()
                 .baseUrl("https://scele.cs.ui.ac.id/")
                 .addConverterFactory(SimpleXmlConverterFactory.create())
@@ -42,12 +49,37 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<NewsScele>>
 
         try {
             posts = call.execute();
-            Log.d("githubagni", (posts.body()).getChannel().title+"ayam");
+            Log.d("githubagni", ((posts.body()).getChannel().item).get(0).getPenulis()+"ayam");
+
+            ArrayList<News> news = new ArrayList<>();
+
+
+            for (int i=0; i<((posts.body()).getChannel().item).size(); i++){
+                String title = (posts.body()).getChannel().item.get(i).getTitle();
+                String desc = (posts.body()).getChannel().item.get(i).getContent();
+                String link = (posts.body()).getChannel().item.get(i).getLink();
+                String tanggal = (posts.body()).getChannel().item.get(i).getPubdate();
+                String penulis = (posts.body()).getChannel().item.get(i).getPenulis();
+
+                news.add(new News(title,desc,link,i,tanggal,penulis));
+            }
+
+            return news;
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return null;
 
+    }
+
+    @Override
+    protected void onPostExecute(ArrayList<News> newsSceles) {
+        Activity newsHome = (Activity) context;
+        final ListView listView = (ListView) newsHome.findViewById(R.id.list_news);
+        ArrayList<News> listMenuItems = newsSceles;
+        final NewsAdapter listMenuAdapter = new NewsAdapter(context, R.layout.news_item_layout, listMenuItems);
+        listView.setAdapter(listMenuAdapter);
     }
 }

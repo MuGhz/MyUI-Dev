@@ -36,6 +36,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        new NewsSceleTask(this).execute();
+
     }
 }

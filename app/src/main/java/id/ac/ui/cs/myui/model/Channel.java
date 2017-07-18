@@ -4,6 +4,7 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,11 +35,11 @@ public class Channel {
     public ImageNews image;
 
     @ElementList(name = "item", inline = true, required = false)
-    public ItemNews item;
+    public ArrayList<ItemNews> item;
 
     public Channel() {}
 
-    public Channel(String title, String link, String description, String generator, String language, String copyright, ImageNews image, ItemNews item) {
+    public Channel(String title, String link, String description, String generator, String language, String copyright, ImageNews image, ArrayList<ItemNews> item) {
         this.title = title;
         this.link = link;
         this.description = description;
