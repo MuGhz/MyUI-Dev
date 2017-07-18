@@ -2,6 +2,7 @@ package id.ac.ui.cs.myui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -10,13 +11,16 @@ import id.ac.ui.cs.myui.R;
 import id.ac.ui.cs.myui.adapter.BookmarkNewsAdapter;
 import id.ac.ui.cs.myui.model.News;
 
-public class BookmarkNewsActivity extends AppCompatActivity {
+public class BookmarkNewsActivity extends BookmarkActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bookmark_news);
+        //setContentView(R.layout.activity_bookmark_news);
         setTitle("Bookmark News");
+        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_bookmark); //Remember this is the FrameLayout area within your activity_main.xml
+        getLayoutInflater().inflate(R.layout.activity_bookmark_news, contentFrameLayout);
+
 
         final ListView listView = (ListView) findViewById(R.id.list_bookmark);
         ArrayList<News> listMenuItems = createSampleMenu();
