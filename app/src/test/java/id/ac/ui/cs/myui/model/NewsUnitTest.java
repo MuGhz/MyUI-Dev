@@ -2,11 +2,10 @@ package id.ac.ui.cs.myui.model;
 
 import org.junit.Before;
 import org.junit.Test;
-import junit.framework.Assert.assertTrue;
-import org.junit.Assert.assertEquals;
-
 
 import id.ac.ui.cs.myui.factory.NewsFactory;
+
+import static junit.framework.Assert.assertEquals;
 
 /**
  * Created by Ivan on 7/18/17.
@@ -20,7 +19,6 @@ public class NewsUnitTest {
     private String newsDateEdited = newsDate;
     private String newsSubmitBy = "Orang 1";
     private String newsEditedBy = newsSubmitBy;
-    private boolean bookmarked;
 
     @Before
     public void setUp() throws Exception {
@@ -58,11 +56,6 @@ public class NewsUnitTest {
     }
 
     @Test
-    public void isBookmarked() throws Exception {
-        assertEquals(bookmarked, news.isBookmarked());
-    }
-
-    @Test
     public void setNewsTitle() throws Exception {
         news.setNewsTitle("a");
         assertEquals("a", news.getNewsTitle());
@@ -92,13 +85,21 @@ public class NewsUnitTest {
         assertEquals("a", news.getNewsSubmitBy());
     }
 
-    @Test void setNewsEditedBy() throws Exception {
+    @Test
+    public void setNewsEditedBy() throws Exception {
         news.setNewsEditedBy("a");
         assertEquals("a", news.getNewsEditedBy());
     }
 
-    @Test void setBookmarked() throws Exception {
+    @Test
+    public void setBookmarked() throws Exception {
         news.setBookmarked(true);
         assertEquals(true, news.isBookmarked());
+    }
+
+    @Test
+    public void setId() throws Exception {
+        news.setId("a");
+        assertEquals("a", news.getId());
     }
 }
