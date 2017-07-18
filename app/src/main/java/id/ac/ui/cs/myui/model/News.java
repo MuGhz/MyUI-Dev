@@ -12,13 +12,27 @@ public class News {
     private String tanggal;
     private String penulis;
 
-    public News(String title, String description, String link, long id, String tanggal, String penulis) {
+    private boolean bookmarked;
+
+    public News(){
+        this.bookmarked=false;
+
+    }
+    public News(String title, String description, String link, String tanggal, String penulis) {
         this.title = title;
         this.description = description;
         this.link = link;
-        this.id = id;
         this.tanggal = tanggal;
         this.penulis = penulis;
+        this.bookmarked = false;
+    }
+
+    public boolean isBookmarked() {
+        return bookmarked;
+    }
+
+    public void setBookmarked(boolean bookmarked) {
+        this.bookmarked = bookmarked;
     }
 
     public String getTitle() {

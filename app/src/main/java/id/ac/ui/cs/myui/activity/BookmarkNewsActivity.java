@@ -29,24 +29,8 @@ public class BookmarkNewsActivity extends AppCompatActivity {
         ArrayList<News> dummy = new ArrayList<>();
         dummy.add(new News("Daftar Calon Lulusan Fasilkom Semester Genap 2016/2017","Dear mahasiswa, \n" +
                 "\n" +
-                "Kami mengucapkan selamat atas keberhasilan Anda dalam menyelesaikan studi. Berikut ini daftar calon lulusan semester genap 2016/2017. Jika ada yang ingin menyampaikan masukan terhadap data ini bisa mengirimkan email ke akademik@cs.ui.ac.id paling lambat hari Senin tanggal 17 Juli 2017. ","link",1,"Friday, 14 July 2017, 10:46 AM"," Siti Aminah"));
-        dummy.add(new News("Persiapan Yudisium dan Kelulusan Semester genap 2016-2017","Kepada mahasiswa calon lulusan semester genap 2016-2017 yang harus diperhatikan sebagai berikut:","link",2,"Friday, 14 July 2017, 10:46 AM"," Muhammad Fauzy"));
-        dummy.add(new News("Daftar Calon Lulusan Fasilkom Semester Genap 2016/2017","Dear mahasiswa, \n" +
-                "\n" +
-                "Kami mengucapkan selamat atas keberhasilan Anda dalam menyelesaikan studi. Berikut ini daftar calon lulusan semester genap 2016/2017. Jika ada yang ingin menyampaikan masukan terhadap data ini bisa mengirimkan email ke akademik@cs.ui.ac.id paling lambat hari Senin tanggal 17 Juli 2017. ","link",1,"Friday, 14 July 2017, 10:46 AM"," Siti Aminah"));
-        dummy.add(new News("Persiapan Yudisium dan Kelulusan Semester genap 2016-2017","Kepada mahasiswa calon lulusan semester genap 2016-2017 yang harus diperhatikan sebagai berikut:","link",2,"Friday, 14 July 2017, 10:46 AM"," Muhammad Fauzy"));
-        dummy.add(new News("Daftar Calon Lulusan Fasilkom Semester Genap 2016/2017","Dear mahasiswa, \n" +
-                "\n" +
-                "Kami mengucapkan selamat atas keberhasilan Anda dalam menyelesaikan studi. Berikut ini daftar calon lulusan semester genap 2016/2017. Jika ada yang ingin menyampaikan masukan terhadap data ini bisa mengirimkan email ke akademik@cs.ui.ac.id paling lambat hari Senin tanggal 17 Juli 2017. ","link",1,"Friday, 14 July 2017, 10:46 AM"," Siti Aminah"));
-        dummy.add(new News("Persiapan Yudisium dan Kelulusan Semester genap 2016-2017","Kepada mahasiswa calon lulusan semester genap 2016-2017 yang harus diperhatikan sebagai berikut:","link",2,"Friday, 14 July 2017, 10:46 AM"," Muhammad Fauzy"));
-        dummy.add(new News("Daftar Calon Lulusan Fasilkom Semester Genap 2016/2017","Dear mahasiswa, \n" +
-                "\n" +
-                "Kami mengucapkan selamat atas keberhasilan Anda dalam menyelesaikan studi. Berikut ini daftar calon lulusan semester genap 2016/2017. Jika ada yang ingin menyampaikan masukan terhadap data ini bisa mengirimkan email ke akademik@cs.ui.ac.id paling lambat hari Senin tanggal 17 Juli 2017. ","link",1,"Friday, 14 July 2017, 10:46 AM"," Siti Aminah"));
-        dummy.add(new News("Persiapan Yudisium dan Kelulusan Semester genap 2016-2017","Kepada mahasiswa calon lulusan semester genap 2016-2017 yang harus diperhatikan sebagai berikut:","link",2,"Friday, 14 July 2017, 10:46 AM"," Muhammad Fauzy"));
-        dummy.add(new News("Daftar Calon Lulusan Fasilkom Semester Genap 2016/2017","Dear mahasiswa, \n" +
-                "\n" +
-                "Kami mengucapkan selamat atas keberhasilan Anda dalam menyelesaikan studi. Berikut ini daftar calon lulusan semester genap 2016/2017. Jika ada yang ingin menyampaikan masukan terhadap data ini bisa mengirimkan email ke akademik@cs.ui.ac.id paling lambat hari Senin tanggal 17 Juli 2017. ","link",1,"Friday, 14 July 2017, 10:46 AM"," Siti Aminah"));
-        dummy.add(new News("Persiapan Yudisium dan Kelulusan Semester genap 2016-2017","Kepada mahasiswa calon lulusan semester genap 2016-2017 yang harus diperhatikan sebagai berikut:","link",2,"Friday, 14 July 2017, 10:46 AM"," Muhammad Fauzy"));
+                "Kami mengucapkan selamat atas keberhasilan Anda dalam menyelesaikan studi. Berikut ini daftar calon lulusan semester genap 2016/2017. Jika ada yang ingin menyampaikan masukan terhadap data ini bisa mengirimkan email ke akademik@cs.ui.ac.id paling lambat hari Senin tanggal 17 Juli 2017. ","link","Friday, 14 July 2017, 10:46 AM"," Siti Aminah"));
+        dummy.add(new News("Persiapan Yudisium dan Kelulusan Semester genap 2016-2017","Kepada mahasiswa calon lulusan semester genap 2016-2017 yang harus diperhatikan sebagai berikut:","link","Friday, 14 July 2017, 10:46 AM"," Muhammad Fauzy"));
 
         return dummy;
 
