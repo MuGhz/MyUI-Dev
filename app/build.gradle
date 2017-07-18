@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply from: '../jacoco.gradle'
+apply plugin: 'com.github.ksoichiro.console.reporter'
 
 android {
     compileSdkVersion 25
@@ -16,6 +18,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            testCoverageEnabled true
+        }
     }
 }
 
@@ -29,6 +34,13 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile ('com.squareup.retrofit2:converter-simplexml:2.3.0'){
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
+
+
 
     compile 'com.android.support:support-annotations:' + rootProject.supportLibVersion;
     // Force usage of support annotations in the test app, since it is internally used by the runner module.
