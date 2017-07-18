@@ -3,5 +3,10 @@
 
 
     <!-- String related to NewsDetail -->
+    <string name="date_text">dd/mm/yyyy</string>
+    <string name="title_text">News Title</string>
+    <string name="author_text">Author</string>
+    <string name="share_text">Share : </string>
     <string name="dummy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a auctor dolor. Vivamus odio augue, finibus ut lacus eu, viverra vestibulum tortor. Vestibulum facilisis ligula ac ipsum porta, et porta velit scelerisque. Donec et nisi sapien. Praesent posuere metus vitae imperdiet maximus. Cras dictum, eros quis aliquet finibus, magna libero varius leo, nec pretium ante magna sit amet dolor. Aenean neque leo, faucibus ac massa eu, luctus blandit eros. Sed semper, erat sed facilisis porta, erat eros viverra metus, ac rutrum tellus est in arcu. Mauris id sodales urna. Phasellus scelerisque, dui ut vestibulum porta, lacus turpis auctor dolor, non porta leo enim in tortor. Mauris sit amet mollis nulla. Proin non porttitor neque. Proin et eros mollis, convallis lacus in, blandit nisl. Duis mattis sit amet leo at interdum. Vivamus sit amet erat dolor. Curabitur dictum ex eget lectus bibendum dapibus. </string>
+
 </resources>
