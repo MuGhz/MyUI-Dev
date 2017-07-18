@@ -26,7 +26,13 @@ dependencies {
     
 
     // retrofit, gson
-    
+    compile ('com.squareup.retrofit2:converter-simplexml:2.3.0'){
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
+
+
     compile 'com.android.support:support-annotations:' + rootProject.supportLibVersion;
     // Force usage of support annotations in the test app, since it is internally used by the runner module.
     androidTestCompile 'com.android.support:support-annotations:' + rootProject.supportLibVersion;
@@ -42,4 +48,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
     testCompile 'junit:junit:4.12'
     testCompile 'org.robolectric:robolectric:3.0'
+
 }
