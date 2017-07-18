@@ -66,8 +66,8 @@ public class DatabaseHandlerTest {
         //Log.i("list1", listBookmark.get(0).toString());
         //Log.i("list2", listBookmark.get(2).toString());
         assertEquals(listBookmark.size(), 2);
-        assertEquals(listBookmark.get(0).getNewsTitle().equals("test1"), true);
-        assertEquals(listBookmark.get(1).getNewsTitle().equals("test2"), true);
+        assertEquals(listBookmark.get(0).getTitle().equals("test1"), true);
+        assertEquals(listBookmark.get(1).getTitle().equals("test2"), true);
 
     }
 
@@ -77,9 +77,9 @@ public class DatabaseHandlerTest {
         News news2 = new News();
         News news3 = new News();
 
-        news1.setNewsTitle("test1");
-        news2.setNewsTitle("test2");
-        news3.setNewsTitle("test3");
+        news1.setTitle("test1");
+        news2.setTitle("test2");
+        news3.setTitle("test3");
 
         news1.setBookmarked(true);
         news2.setBookmarked(true);
