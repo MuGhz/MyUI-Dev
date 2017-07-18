@@ -11,6 +11,7 @@ public class News {
     private String newsDateEdited;
     private String newsSubmitBy;
     private String newsEditedBy;
+    private boolean bookmarked;
 
     public News(String newsTitle, String newsContent, String newsDate, String newsDateEdited, String newsSubmitBy, String newsEditedBy) {
         this.newsTitle = newsTitle;
@@ -19,6 +20,7 @@ public class News {
         this.newsDateEdited = newsDateEdited;
         this.newsSubmitBy = newsSubmitBy;
         this.newsEditedBy = newsEditedBy;
+        this.bookmarked = false;
     }
 
     public String getNewsTitle() {
@@ -67,5 +69,13 @@ public class News {
 
     public void setNewsEditedBy(String newsEditedBy) {
         this.newsEditedBy = newsEditedBy;
+    }
+
+    public boolean isBookmarked() {
+        return bookmarked;
+    }
+
+    public void setBookmarked(boolean bookmarked) {
+        this.bookmarked = bookmarked;
     }
 }
