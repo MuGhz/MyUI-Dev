@@ -28,11 +28,15 @@ dependencies {
 
     //footer tab
     compile 'com.roughike:bottom-bar:2.3.1'
+    
 
     // retrofit, gson
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    compile 'com.android.support:support-annotations:' + rootProject.supportLibVersion;
+
 
     compile 'com.android.support:support-annotations:' + rootProject.supportLibVersion;
     // Force usage of support annotations in the test app, since it is internally used by the runner module.
@@ -41,7 +45,9 @@ dependencies {
     androidTestCompile 'com.android.support.test:rules:' + rootProject.rulesVersion;
     androidTestCompile 'com.android.support.test.espresso:espresso-core:' + rootProject.espressoVersion;
     androidTestCompile 'com.android.support.test.espresso:espresso-intents:' + rootProject.espressoVersion;
+
     compile 'com.android.support:appcompat-v7:25.0.3'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
+
     testCompile 'junit:junit:4.12'
 }
