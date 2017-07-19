@@ -1,5 +1,6 @@
 package id.ac.ui.cs.myui.activity;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
@@ -8,9 +9,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import id.ac.ui.cs.myui.R;
 import id.ac.ui.cs.myui.fragment.SliderFragment;
+import id.ac.ui.cs.myui.model.CalendarItem;
 
 /**
  * Created by galih.priyambodho on 17/07/17.
@@ -33,8 +38,11 @@ public class CalendarDetailActivity extends FragmentActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.slider);
+        setContentView(R.layout.activity_calendar_detail);
         PagerAdapter mPagerAdapter;
+
+        Intent intent = getIntent();
+       // TextView kegiatan = (TextView) findViewById(R.id.)
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);

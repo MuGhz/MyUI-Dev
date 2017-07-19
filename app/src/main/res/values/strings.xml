@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyUI</string>
+    <string name="tanggal_mulai">Tanggal Mulai</string>
+    <string name="tanggal_selesai">Tanggal Selesai</string>
 </resources>

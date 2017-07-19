@@ -16,6 +16,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import id.ac.ui.cs.myui.task.CalendarTask;
 public class CalendarActivity extends AppCompatActivity {
 
     private DatabaseHelper dbHelper;
+    ArrayList<CalendarItem> myCalendar;
     final String URL = "https://academic.ui.ac.id/main/Authentication/";
 
     @Override
@@ -35,14 +37,14 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
        setContentView(R.layout.activity_calender);
 
-        Context ctx = getApplicationContext();
+        final Context ctx = getApplicationContext();
         dbHelper = new DatabaseHelper(ctx);
 
 
         new CalendarTask(CalendarActivity.this).execute();
         ListView tanggalList = (ListView) findViewById(R.id.list_tanggal);
 
-        List<CalendarItem> myCalendar = dbHelper.getAllParentMenu(); //Harus ambil data dari serviceL
+        final List<CalendarItem> myCalendar = dbHelper.getAllParentMenu(); //Harus ambil data dari serviceL
      //   Log.i("CALENDAR ACTIVITY", myCalendar.toString());
         ListAdapter adapter = new ListCalendarAdapter(this, R.layout.content_calender, (ArrayList<CalendarItem>) myCalendar);
         tanggalList.setAdapter(adapter);
@@ -50,8 +52,14 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-
-//                Intent intent = new Intent(startActivity());
+                CalendarItem item = (CalendarItem) adapterView.getItemAtPosition(i);
+                Intent intent = new Intent(CalendarActivity.this, CalendarDetailActivity.class);
+                intent.putExtra("nama kegiatan", item.getNamaKegiatan());
+                intent.putExtra("durasi", item.getDurasi());
+                intent.putExtra("pelaksana", item.getPelaksana());
+                intent.putExtra("tanggal mulai", item.getTanggalMulai());
+                intent.putExtra("tanggal selesai", item.getTanggalSelesai());
+                startActivity(intent);
             }
         });
 

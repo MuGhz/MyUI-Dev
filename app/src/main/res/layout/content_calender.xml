@@ -5,70 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/calendarItem_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="@dimen/label_font_size" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        card_view:cardCornerRadius="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tanggal_mulai"
+                android:id="@+id/calendarItem_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView"
-                android:textSize="@dimen/small_label_font_size"
-                tools:text="Tanggal Mulai" />
+                android:layout_marginBottom="10sp"
+                android:layout_marginTop="10sp"
+                android:textSize="16sp"
+                android:layout_marginLeft="5sp"
+                android:layout_marginRight="5sp"/>
 
-            <TextView
-                android:id="@+id/tanggalnyamulai"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView"
-                android:textSize="@dimen/desc_font_size" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tanggalnyamulai"
+                    android:layout_width="54dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:textSize="12sp"
+                    android:layout_weight="0.07" />
+
+                <TextView
+                    android:id="@+id/tandahubung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:text="-"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tanggalnyaselesai"
+                    android:layout_width="52dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:textSize="12sp"
+                    android:layout_weight="0.12" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tanggal_selesai"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView"
-                android:textSize="@dimen/small_label_font_size"
-                tools:text="Tanggal Selesai" />
-
-            <TextView
-                android:id="@+id/tanggalnyaselesai"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView"
-                android:textSize="@dimen/desc_font_size" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>
