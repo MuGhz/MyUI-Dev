@@ -11,6 +11,7 @@ public class News {
     private long id;
     private String tanggal;
     private String penulis;
+
     private boolean bookmarked;
 
     public News(){
@@ -33,7 +34,6 @@ public class News {
     public void setBookmarked(boolean bookmarked) {
         this.bookmarked = bookmarked;
     }
-
 
     public String getTitle() {
         return title;
@@ -83,4 +83,3 @@ public class News {
         this.penulis = penulis;
     }
 }
-
