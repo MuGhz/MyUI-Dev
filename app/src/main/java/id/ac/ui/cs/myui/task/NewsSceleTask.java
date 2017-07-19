@@ -103,6 +103,7 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 intent.putExtra("Penulis", penulis);
                 intent.putExtra("Judul", title);
                 intent.putExtra("link", link);
+                intent.putExtra("contextParent", "newsHome");
                 context.startActivity(intent);
             }
         });

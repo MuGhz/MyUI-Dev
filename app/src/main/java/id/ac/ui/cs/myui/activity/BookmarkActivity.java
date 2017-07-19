@@ -19,15 +19,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import id.ac.ui.cs.myui.R;
 import id.ac.ui.cs.myui.adapter.BookmarkNewsAdapter;
+import id.ac.ui.cs.myui.database.DatabaseHandler;
 import id.ac.ui.cs.myui.fragment.MainFragment;
 import id.ac.ui.cs.myui.model.News;
 
 public class BookmarkActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    DatabaseHandler databaseHandler;
 
     public DrawerLayout drawerLayout;
     public ListView drawerList;
@@ -39,27 +43,7 @@ public class BookmarkActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmark);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
-//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawerLayout.setDrawerListener(toggle);
-//        toggle.syncState();
-//
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
-    //=====================================================================================================
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -74,9 +58,14 @@ public class BookmarkActivity extends AppCompatActivity
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
 
-                    case R.id.news_feed_menu_drawer:
+                    case R.id.bookmark_menu_drawer:
                         Intent anIntent = new Intent(getApplicationContext(), BookmarkNewsActivity.class);
                         startActivity(anIntent);
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.news_feed_menu_drawer:
+                        Intent anIntent1 = new Intent(getApplicationContext(), NewsHomeActivity.class);
+                        startActivity(anIntent1);
                         drawerLayout.closeDrawers();
                         break;
 
@@ -88,14 +77,9 @@ public class BookmarkActivity extends AppCompatActivity
 
     }
 
-    private ArrayList<News> createSampleMenu(){
-        ArrayList<News> dummy = new ArrayList<>();
-        dummy.add(new News("Daftar Calon Lulusan Fasilkom Semester Genap 2016/2017","Dear mahasiswa, \n" +
-                "\n" +
-                "Kami mengucapkan selamat atas keberhasilan Anda dalam menyelesaikan studi. Berikut ini daftar calon lulusan semester genap 2016/2017. Jika ada yang ingin menyampaikan masukan terhadap data ini bisa mengirimkan email ke akademik@cs.ui.ac.id paling lambat hari Senin tanggal 17 Juli 2017. ","link","Friday, 14 July 2017, 10:46 AM"," Siti Aminah"));
-        dummy.add(new News("Persiapan Yudisium dan Kelulusan Semester genap 2016-2017","Kepada mahasiswa calon lulusan semester genap 2016-2017 yang harus diperhatikan sebagai berikut:","link","Friday, 14 July 2017, 10:46 AM"," Muhammad Fauzy"));
-
-        return dummy;
+    private List<News> createSampleMenu(){
+        List<News> newsList = databaseHandler.getAllBookmarkedNews();
+        return newsList;
 
     }
 

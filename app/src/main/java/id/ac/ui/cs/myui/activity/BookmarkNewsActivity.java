@@ -1,22 +1,33 @@
 package id.ac.ui.cs.myui.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import id.ac.ui.cs.myui.R;
 import id.ac.ui.cs.myui.adapter.BookmarkNewsAdapter;
+import id.ac.ui.cs.myui.database.DatabaseHandler;
 import id.ac.ui.cs.myui.model.News;
 
 public class BookmarkNewsActivity extends BookmarkActivity{
-
+    DatabaseHandler databaseHandler;
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_bookmark_news);
+
+        // Init database
+        databaseHandler = new DatabaseHandler(this);
+
         setTitle("Bookmark News");
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_bookmark); //Remember this is the FrameLayout area within your activity_main.xml
         getLayoutInflater().inflate(R.layout.activity_bookmark_news, contentFrameLayout);
@@ -26,18 +37,45 @@ public class BookmarkNewsActivity extends BookmarkActivity{
         ArrayList<News> listMenuItems = createSampleMenu();
         final BookmarkNewsAdapter listMenuAdapter = new BookmarkNewsAdapter(BookmarkNewsActivity.this, R.layout.bookmark_item, listMenuItems);
         listView.setAdapter(listMenuAdapter);
+        final Intent intent = new Intent(this, NewsDetailActivity.class);
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                String title = listMenuAdapter.getItem(i).getTitle();
+                String description = listMenuAdapter.getItem(i).getDescription();
+                String tanggal = listMenuAdapter.getItem(i).getTanggal();
+                String penulis = listMenuAdapter.getItem(i).getPenulis();
+                String link = listMenuAdapter.getItem(i).getLink();
+                intent.putExtra("Description", description);
+                intent.putExtra("Tanggal", tanggal);
+                intent.putExtra("Penulis", penulis);
+                intent.putExtra("Judul", title);
+                intent.putExtra("link", link);
+                intent.putExtra("contextParent", "bookmark");
+                startActivity(intent);
+            }
+        });
+
 
     }
 
     private ArrayList<News> createSampleMenu(){
+        List<News> newsList = databaseHandler.getAllBookmarkedNews();
         ArrayList<News> dummy = new ArrayList<>();
-        dummy.add(new News("Daftar Calon Lulusan Fasilkom Semester Genap 2016/2017","Dear mahasiswa, \n" +
-                "\n" +
-                "Kami mengucapkan selamat atas keberhasilan Anda dalam menyelesaikan studi. Berikut ini daftar calon lulusan semester genap 2016/2017. Jika ada yang ingin menyampaikan masukan terhadap data ini bisa mengirimkan email ke akademik@cs.ui.ac.id paling lambat hari Senin tanggal 17 Juli 2017. ","link","Friday, 14 July 2017, 10:46 AM"," Siti Aminah"));
-        dummy.add(new News("Persiapan Yudisium dan Kelulusan Semester genap 2016-2017","Kepada mahasiswa calon lulusan semester genap 2016-2017 yang harus diperhatikan sebagai berikut:","link","Friday, 14 July 2017, 10:46 AM"," Muhammad Fauzy"));
-
+        for (News i :newsList){
+            dummy.add(new News(i.getTitle(),i.getDescription(),i.getLink(),i.getTanggal(),i.getPenulis()));
+        }
         return dummy;
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = intent = new Intent(this, NewsHomeActivity.class);
+        startActivity(intent);
+    }
 }
