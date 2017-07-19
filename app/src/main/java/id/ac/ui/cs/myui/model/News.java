@@ -11,6 +11,10 @@ public class News {
     private long id;
     private String tanggal;
     private String penulis;
+    boolean isBookmarked;
+
+    public News() {
+    }
 
     public News(String title, String description, String link, long id, String tanggal, String penulis) {
         this.title = title;
@@ -19,6 +23,7 @@ public class News {
         this.id = id;
         this.tanggal = tanggal;
         this.penulis = penulis;
+        this.isBookmarked = false;
     }
 
     public String getTitle() {
@@ -67,6 +72,14 @@ public class News {
 
     public void setPenulis(String penulis) {
         this.penulis = penulis;
+    }
+
+    public boolean isBookmarked() {
+        return isBookmarked;
+    }
+
+    public void setBookmarked(boolean bookmarked) {
+        isBookmarked = bookmarked;
     }
 }
 

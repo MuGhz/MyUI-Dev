@@ -97,10 +97,12 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 String description = listMenuAdapter.getItem(i).getDescription();
                 String tanggal = listMenuAdapter.getItem(i).getTanggal();
                 String penulis = listMenuAdapter.getItem(i).getPenulis();
+                String link = listMenuAdapter.getItem(i).getLink();
                 intent.putExtra("Description", description);
                 intent.putExtra("Tanggal", tanggal);
                 intent.putExtra("Penulis", penulis);
                 intent.putExtra("Judul", title);
+                intent.putExtra("link", link);
                 context.startActivity(intent);
             }
         });
