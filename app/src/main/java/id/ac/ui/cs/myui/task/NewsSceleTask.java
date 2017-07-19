@@ -67,7 +67,6 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 String link = itemNews.get(i).getLink();
                 String tanggal = itemNews.get(i).getPubdate();
                 String penulis = itemNews.get(i).getPenulis();
-
                 news.add(new News(title,desc,link,i,tanggal,penulis));
             }
             Log.i("DEBUG NEWS SCELE TASK", "doInBackground: " + news.get(0).getDescription() + " desc");
@@ -99,6 +98,8 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 intent.putExtra("pubDate",value.getTanggal());
                 intent.putExtra("content",value.getDescription());
                 intent.putExtra("author",value.getPenulis());
+                intent.putExtra("link",value.getLink()+"");
+                intent.putExtra("id",value.getId());
 
                 context.startActivity(intent);
             }
