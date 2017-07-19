@@ -45,7 +45,7 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 .baseUrl("https://scele.cs.ui.ac.id/")
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .build();
-
+        Log.i("test", "masuk sini");
         NewsService service = client.create(NewsService.class);
 
         Call<NewsScele> call = service.listNewsScele();
@@ -55,7 +55,7 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
 
         try {
             posts = call.execute();
-
+            Log.d("XXX","isinya "+posts.body());
             ArrayList<ItemNews> itemNews = posts.body().getChannel().item;
 
             ArrayList<News> news = new ArrayList<>();
@@ -70,7 +70,7 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
 
                 news.add(new News(title,desc,link,i,tanggal,penulis));
             }
-
+            Log.i("DEBUG NEWS SCELE TASK", "doInBackground: " + news.get(0).getDescription() + " desc");
             return news;
 
         } catch (IOException e) {
