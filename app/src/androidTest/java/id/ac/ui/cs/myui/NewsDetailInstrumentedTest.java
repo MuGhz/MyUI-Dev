@@ -10,10 +10,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import id.ac.ui.cs.myui.activity.NewsDetailActivity;
+import id.ac.ui.cs.myui.helper.AppsHelper;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -25,7 +27,9 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class NewsDetailInstrumentedTest {
-    
+    private final String PACKAGE_LINE = "jp.naver.line.android";
+    private final String PACKAGE_WA = "com.whatsapp";
+
     @Before
     public void initValidString() {
         // Specify a valid string.
@@ -48,12 +52,12 @@ public class NewsDetailInstrumentedTest {
     @Test
     public void testShareButtonLine() {
         onView(withId(R.id.button_line)).perform(click());
-        //insert test here
+        AppsHelper.isAppRunning(NewsDetailActivity.context, PACKAGE_LINE);
     }
 
     @Test
     public void testShareButtonWA() {
         onView(withId(R.id.button_wa)).perform(click());
-        //insert test here
+        AppsHelper.isAppRunning(NewsDetailActivity.context, PACKAGE_WA);
     }
 }
