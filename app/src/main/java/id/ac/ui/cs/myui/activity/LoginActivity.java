@@ -23,14 +23,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //set title bar
+        
         setTitle("Halaman Login");
 
         //set action if login button clicked
         Button loginButton = (Button) findViewById(R.id.login);
         loginButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new  Intent(LoginActivity.this, HomeActivity.class);
+                Intent i = new  Intent(LoginActivity.this, CalendarActivity.class);
                 startActivity(i);
             }
         });
