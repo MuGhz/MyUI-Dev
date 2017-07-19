@@ -24,6 +24,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     public static final String CLASS_NAME = "jp.naver.line.android.activity.selectchat.SelectChatActivity";
     Context context;
     ImageButton ibShareLine;
+    ImageButton ibShare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
 
         ibShareLine = (ImageButton) findViewById(R.id.button_line);
+        ibShare = (ImageButton) findViewById(R.id.button_share);
 
         TextView pubDate = (TextView) findViewById(R.id.pubdate);
         pubDate.setText(intent.getStringExtra("pubDate"));
@@ -70,7 +72,9 @@ public class NewsDetailActivity extends AppCompatActivity {
             sendString=news_content.getText().toString()
             ;
         }
+
         final String snippet=sendString+"...";
+
         ibShareLine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +93,19 @@ public class NewsDetailActivity extends AppCompatActivity {
                 }
             }
 
+        });
+
+        ibShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String shareBodyText = news_title.getText() + "\n" + news_author.getText()
+                        + "\n" + snippet + "\n\nSelengkapnya : \n" + link;
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject/Title");
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
+                startActivity(Intent.createChooser(intent, "Choose sharing method"));
+            }
         });
 
     }

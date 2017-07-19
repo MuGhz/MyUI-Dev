@@ -51,35 +51,41 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/text_share"
-                android:text="@string/share_text"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal">
 
                 <ImageButton
                     android:id="@+id/button_line"
-                    android:background="@drawable/line_button"
+                    android:background="@drawable/ic_line_round"
                     android:layout_marginTop="6dp"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:actionProviderClass=
                         "android.widget.ShareActionProvider"/>
 
                 <ImageButton
                     android:id="@+id/button_wa"
-                    android:background="@drawable/whatsapp"
+                    android:background="@drawable/ic_whatsapp_round"
                     android:layout_marginStart="6dp"
                     android:layout_marginTop="6dp"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="6dp"
+                    android:actionProviderClass=
+                        "android.widget.ShareActionProvider"/>
+
+                <ImageButton
+                    android:id="@+id/button_share"
+                    android:background="@drawable/shape_oval"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="6dp"
+                    android:src="@drawable/ic_share_white"
                     android:actionProviderClass=
                         "android.widget.ShareActionProvider"/>
 
