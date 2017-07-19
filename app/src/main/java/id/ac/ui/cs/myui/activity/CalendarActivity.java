@@ -42,16 +42,23 @@ public class CalendarActivity extends AppCompatActivity {
         new CalendarTask(CalendarActivity.this).execute();
         ListView tanggalList = (ListView) findViewById(R.id.list_tanggal);
 
-        List<CalendarItem> myCalendar = dbHelper.getAllParentMenu(); //Harus ambil data dari serviceL
+        final List<CalendarItem> myCalendar = dbHelper.getAllParentMenu(); //Harus ambil data dari serviceL
      //   Log.i("CALENDAR ACTIVITY", myCalendar.toString());
-        ListAdapter adapter = new ListCalendarAdapter(this, R.layout.content_calender, (ArrayList<CalendarItem>) myCalendar);
+        final ListAdapter adapter = new ListCalendarAdapter(this, R.layout.content_calender, (ArrayList<CalendarItem>) myCalendar);
         tanggalList.setAdapter(adapter);
         tanggalList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+               Intent intent = new Intent(CalendarActivity.this,CalendarDetailActivity.class);
+                CalendarItem item = (CalendarItem) (adapter.getItem(i));
+                String tglMulai = item.getTanggalMulai() ;
+                String tglSelesai =item.getTanggalSelesai();
 
-//                Intent intent = new Intent(startActivity());
+                intent.putExtra("tanggalMulai",tglMulai);
+                intent.putExtra("tanggalSelesai",tglSelesai);
+                Log.d("tanggalintent",tglMulai);
+                startActivity(intent);
             }
         });
 

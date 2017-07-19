@@ -71,6 +71,15 @@
                 android:text="Isi Deskripsi"
                 android:layout_marginLeft="5dp"
                 />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/insert_event_btn"
+                android:text="INSERT TO GCAL"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/output_api_gcal"/>
         </LinearLayout>
 
     </ScrollView>
