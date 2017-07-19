@@ -2,16 +2,21 @@ package id.ac.ui.cs.myui.task;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import id.ac.ui.cs.myui.R;
+import id.ac.ui.cs.myui.activity.NewsDetailActivity;
 import id.ac.ui.cs.myui.activity.NewsHomeActivity;
 import id.ac.ui.cs.myui.adapter.NewsAdapter;
 import id.ac.ui.cs.myui.model.News;
@@ -81,5 +86,26 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
         ArrayList<News> listMenuItems = newsSceles;
         final NewsAdapter listMenuAdapter = new NewsAdapter(context, R.layout.news_item_layout, listMenuItems);
         listView.setAdapter(listMenuAdapter);
+
+        final Intent intent = new Intent(context, NewsDetailActivity.class);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String title = listMenuAdapter.getItem(i).getTitle();
+                String description = listMenuAdapter.getItem(i).getDescription();
+                String tanggal = listMenuAdapter.getItem(i).getTanggal();
+                String penulis = listMenuAdapter.getItem(i).getPenulis();
+                intent.putExtra("Description", description);
+                intent.putExtra("Tanggal", tanggal);
+                intent.putExtra("Penulis", penulis);
+                intent.putExtra("Judul", title);
+                context.startActivity(intent);
+
+                Toast.makeText(context, "Kepencet", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }
