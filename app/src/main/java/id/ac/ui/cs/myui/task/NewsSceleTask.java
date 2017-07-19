@@ -102,8 +102,6 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 intent.putExtra("Penulis", penulis);
                 intent.putExtra("Judul", title);
                 context.startActivity(intent);
-
-                Toast.makeText(context, "Kepencet", Toast.LENGTH_SHORT).show();
             }
         });
 
