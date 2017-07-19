@@ -39,7 +39,9 @@ public class CalendarTask extends AsyncTask<String, Void, String> {
 
     /*
         Digunakan untuk mengambil data hasil scrap dari website academic.ui.ac.id
-        menggunakan jsoup library (masih sotil, kalau kalian punya yang lebih rekomen silakan diganti. masih masalah klo mau scrap pagenya mesti login dulu)
+        menggunakan jsoup library
+        masih sotil, kalau kalian punya yang lebih rekomen silakan diganti.
+         masih masalah klo mau scrap pagenya mesti login dulu)
      */
 
     @Override
@@ -53,8 +55,8 @@ public class CalendarTask extends AsyncTask<String, Void, String> {
 //
 //            Connection.Response login = Jsoup
 //                    .connect(params[0])
-//                    .data("u","sarah.yarismal")
-//                    .data("p","berkah2017")
+//                    .data("u","")
+//                    .data("p","")
 //                    .cookies(initial.cookies())
 //                    .method(Connection.Method.POST)
 //                    .execute();
@@ -141,6 +143,4 @@ public class CalendarTask extends AsyncTask<String, Void, String> {
 
         return items;
     }
-
-
 }

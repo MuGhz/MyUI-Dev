@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import id.ac.ui.cs.myui.model.CalendarItem;
  * Created by galih.priyambodho on 17/07/17.
  */
 
-public class CalendarDetailActivity extends FragmentActivity{
+public class CalendarDetailActivity extends AppCompatActivity /*extends FragmentActivity*/{
 
 
     /**
@@ -42,15 +43,26 @@ public class CalendarDetailActivity extends FragmentActivity{
         PagerAdapter mPagerAdapter;
 
         Intent intent = getIntent();
-       // TextView kegiatan = (TextView) findViewById(R.id.)
+        TextView kegiatan = (TextView) findViewById(R.id.kegiatan);
+        TextView tanggalMulai = (TextView) findViewById(R.id.tanggal_mulai);
+        TextView tanggalSelesai = (TextView) findViewById(R.id.tanggal_selesai);
+        TextView durasi = (TextView) findViewById(R.id.durasi);
+        TextView pelaksana = (TextView) findViewById(R.id.pelaksana);
 
-        // Instantiate a ViewPager and a PagerAdapter.
+        kegiatan.setText(intent.getStringExtra("nama kegiatan"));
+        durasi.setText(intent.getStringExtra("durasi") + " hari");
+        tanggalMulai.setText(intent.getStringExtra("tanggal mulai"));
+        tanggalSelesai.setText(intent.getStringExtra("tanggal selesai"));
+        pelaksana.setText(intent.getStringExtra("pelaksana"));
+
+
+       /* // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-        mPager.setAdapter(mPagerAdapter);
+        mPager.setAdapter(mPagerAdapter)*/;
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         if (mPager.getCurrentItem() == 0) {
             // If the user is currently looking at the first step, allow the system to handle the
@@ -62,10 +74,10 @@ public class CalendarDetailActivity extends FragmentActivity{
         }
     }
 
-    /**
+    *//**
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
      * sequence.
-     */
+     *//*
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
@@ -81,6 +93,6 @@ public class CalendarDetailActivity extends FragmentActivity{
             return NUM_PAGES;
         }
     }
-
+*/
 
 }

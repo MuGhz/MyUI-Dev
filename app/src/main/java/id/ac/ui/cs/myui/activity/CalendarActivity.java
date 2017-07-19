@@ -55,7 +55,7 @@ public class CalendarActivity extends AppCompatActivity {
                 CalendarItem item = (CalendarItem) adapterView.getItemAtPosition(i);
                 Intent intent = new Intent(CalendarActivity.this, CalendarDetailActivity.class);
                 intent.putExtra("nama kegiatan", item.getNamaKegiatan());
-                intent.putExtra("durasi", item.getDurasi());
+                intent.putExtra("durasi", "" + item.getDurasi());
                 intent.putExtra("pelaksana", item.getPelaksana());
                 intent.putExtra("tanggal mulai", item.getTanggalMulai());
                 intent.putExtra("tanggal selesai", item.getTanggalSelesai());
