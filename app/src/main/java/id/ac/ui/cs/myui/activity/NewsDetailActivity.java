@@ -62,7 +62,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         if (!isBookmarked(news)){
             Toast.makeText(NewsDetailActivity.this, "Berhasil menambahkan ke daftar Bookmark", Toast.LENGTH_SHORT).show();
             news.setBookmarked(true);
-            databaseHandler.addNews(news);
+            databaseHandler.addBookmark(news);
         }else{
             Toast.makeText(NewsDetailActivity.this, "Sudah di Bookmark", Toast.LENGTH_SHORT).show();
         }
