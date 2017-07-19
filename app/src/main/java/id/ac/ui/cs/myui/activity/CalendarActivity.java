@@ -54,9 +54,11 @@ public class CalendarActivity extends AppCompatActivity {
                 CalendarItem item = (CalendarItem) (adapter.getItem(i));
                 String tglMulai = item.getTanggalMulai() ;
                 String tglSelesai =item.getTanggalSelesai();
+                String deskripsi = item.getNamaKegiatan();
 
                 intent.putExtra("tanggalMulai",tglMulai);
                 intent.putExtra("tanggalSelesai",tglSelesai);
+                intent.putExtra("namaKegiatan",deskripsi);
                 Log.d("tanggalintent",tglMulai);
                 startActivity(intent);
             }

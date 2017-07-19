@@ -75,7 +75,6 @@ public class CalendarDetailActivity extends FragmentActivity implements EasyPerm
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
 
-    private static final String BUTTON_TEXT = "Call Google Calendar API";
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = { CalendarScopes.CALENDAR_READONLY,CalendarScopes.CALENDAR};
 
@@ -92,6 +91,7 @@ public class CalendarDetailActivity extends FragmentActivity implements EasyPerm
 
     String tglMulai;
     String tglSelesai;
+    String deskripsi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +116,7 @@ public class CalendarDetailActivity extends FragmentActivity implements EasyPerm
                 //getResultsFromApi();
                 tglMulai = getIntent().getStringExtra("tanggalMulai");
                 tglSelesai = getIntent().getStringExtra("tanggalSelesai");
+                deskripsi = getIntent().getStringExtra("namaKegiatan");
                 insertEventToApi();
                 mCallApiButton.setEnabled(true);
             }
@@ -124,7 +125,7 @@ public class CalendarDetailActivity extends FragmentActivity implements EasyPerm
 
         mOutputText = (TextView) findViewById(R.id.output_api_gcal);
         mOutputText.setText(
-                "Click the \'" + BUTTON_TEXT +"\' button to test the API.");
+                "Click the \'" +"\' button to test the API.");
 
         mProgress = new ProgressDialog(this);
         mProgress.setMessage("Calling Google Calendar API ...");
@@ -404,9 +405,9 @@ public class CalendarDetailActivity extends FragmentActivity implements EasyPerm
         @Override
         protected String doInBackground(Void... voids) {
             Event event = new Event()
-                    .setSummary("Google I/O 2015")
-                    .setLocation("800 Howard St., San Francisco, CA 94103")
-                    .setDescription("A chance to hear more about Google's developer products.");
+                    .setSummary(deskripsi)
+                    .setLocation("Universitas Indonesia")
+                    .setDescription(deskripsi + " " +"Universitas Indonesia");
 
 
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
