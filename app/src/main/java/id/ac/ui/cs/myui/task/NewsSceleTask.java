@@ -66,7 +66,7 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 String tanggal = (posts.body()).getChannel().item.get(i).getPubdate();
                 String penulis = (posts.body()).getChannel().item.get(i).getPenulis();
 
-                news.add(new News(title,desc,link,i,tanggal,penulis));
+                news.add(new News(title,desc,link,tanggal,penulis));
             }
 
             return news;

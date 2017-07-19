@@ -11,22 +11,22 @@ public class News {
     private long id;
     private String tanggal;
     private String penulis;
-    boolean isBookmarked;
+    private boolean bookmarked;
 
-    public News() {
+    public News(){
+        this.bookmarked=false;
+
     }
-
-    public News(String title, String description, String link, long id, String tanggal, String penulis) {
+    public News(String title, String description, String link, String tanggal, String penulis) {
         this.title = title;
         this.description = description;
         this.link = link;
-        this.id = id;
         this.tanggal = tanggal;
         this.penulis = penulis;
-        this.isBookmarked = false;
+        this.bookmarked = false;
     }
 
-    public String getTitle() {
+        public String getTitle() {
         return title;
     }
 
@@ -75,11 +75,14 @@ public class News {
     }
 
     public boolean isBookmarked() {
-        return isBookmarked;
+        return bookmarked;
     }
 
     public void setBookmarked(boolean bookmarked) {
-        isBookmarked = bookmarked;
+        this.bookmarked = bookmarked;
     }
+
+
+
 }
 

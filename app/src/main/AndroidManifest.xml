@@ -12,18 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.LoginActivity">
-
         </activity>
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.DetailActivity" />
         <activity android:name=".activity.NewsDetailActivity" />
-        <activity android:name=".activity.NewsHomeActivity">
+        <activity android:name=".activity.NewsHomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.BookmarkNewsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+        </activity>
+        <activity
+            android:name=".activity.BookmarkActivity"
+            android:label="@string/title_activity_bookmark"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

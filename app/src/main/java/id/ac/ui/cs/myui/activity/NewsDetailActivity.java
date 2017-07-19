@@ -44,7 +44,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         buttonBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                News news = new News(judul, description, link, 0, tanggal, penulis);
+                News news = new News(judul, description, link, tanggal, penulis);
                 bookmark(news);
             }
         });

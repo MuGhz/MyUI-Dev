@@ -165,7 +165,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
                 // Adding user record to list
-                if (news.isBookmarked()){
+               if (news.isBookmarked()){
                     bookmarkedNewsList.add(news);
                 }
 
