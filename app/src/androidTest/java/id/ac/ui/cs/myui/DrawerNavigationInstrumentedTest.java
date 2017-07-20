@@ -2,7 +2,6 @@ package id.ac.ui.cs.myui;
 
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
-import android.support.test.espresso.ViewAssertion;
 import android.support.test.rule.ActivityTestRule;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,17 +10,13 @@ import android.view.View;
 import org.hamcrest.Matcher;
 import org.junit.Rule;
 import org.junit.Test;
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withParent;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNotNull;
 
 import id.ac.ui.cs.myui.activity.BookmarkActivity;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static junit.framework.Assert.assertNotNull;
 
 
 /**
@@ -39,7 +34,7 @@ public class DrawerNavigationInstrumentedTest {
         onView(withId(R.id.drawer_layout)).perform(actionCloseDrawer());
 
     }
-    private static ViewAction actionOpenDrawer() {
+    public static ViewAction actionOpenDrawer() {
         return new ViewAction() {
             @Override
             public Matcher<View> getConstraints() {

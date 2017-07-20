@@ -17,5 +17,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="bookmarking">Berhasil menambahkan ke daftar Bookmark</string>
+    <string name="bookmarked">Sudah di Bookmark</string>
+    <string name="unbookmarked">Berhasil menghapus dari daftar Bookmark</string>
+
 
 </resources>
