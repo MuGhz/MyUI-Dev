@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
     private static int DATABASE_VERSION = 1;
-    private static String DATABASE_NAME = "kalender.db";
+        private static String DATABASE_NAME = "kalender.db";
     private String databasePath;
     private SQLiteDatabase db;
 
