@@ -52,5 +52,6 @@ public class KalenderAkademikInrtrumentedTest {
     public void onClickCalendarItem() {
         onView(withId(R.id.list_tanggal)).perform(click());
         // declared what activity should be moved in
+        onView(withId(R.id.detailscrollview)).check(matches(isDisplayed()));
     }
 }
