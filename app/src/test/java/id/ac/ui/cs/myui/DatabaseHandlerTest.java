@@ -35,22 +35,19 @@ import static junit.framework.Assert.assertNotNull;
 @Config(constants = BuildConfig.class)
 public class DatabaseHandlerTest {
 
-    DatabaseHelper db;
+    DatabaseHelper dbhelper;
+    DatabaseHandler dbhandler;
 
     @Before
-    public void setUp(){
-        db = new DatabaseHelper(RuntimeEnvironment.application);
-
-    DatabaseHandler db;
-
-    @Before
-    public void setUp(){
-        db = new DatabaseHandler(RuntimeEnvironment.application);
+    public void setUp() {
+        dbhelper = new DatabaseHelper(RuntimeEnvironment.application);
+        dbhandler = new DatabaseHandler(RuntimeEnvironment.application);
     }
 
     @After
     public void tearDown(){
-        db.close();
+        dbhelper.close();
+        dbhandler.close();
     }
 
     @Test
@@ -63,9 +60,9 @@ public class DatabaseHandlerTest {
         lci.add(ci1);
         lci.add(ci2);
         lci.add(ci3);
-        db.insertMenu(lci);
-        assertNotNull(db.getAllParentMenu());
-        List<CalendarItem> dariDatabase = db.getAllParentMenu();
+        dbhelper.insertMenu(lci);
+        assertNotNull(dbhelper.getAllParentMenu());
+        List<CalendarItem> dariDatabase = dbhelper.getAllParentMenu();
         assertEquals("test1",dariDatabase.get(0).getNamaKegiatan());
         assertEquals("test2",dariDatabase.get(1).getNamaKegiatan());
         assertEquals("test3",dariDatabase.get(2).getNamaKegiatan());
@@ -81,9 +78,9 @@ public class DatabaseHandlerTest {
         news2.setTitle("test2");
         news3.setTitle("test3");
 
-        db.addBookmark(news1);
-        db.addBookmark(news2);
-        db.addBookmark(news3);
+        dbhandler.addBookmark(news1);
+        dbhandler.addBookmark(news2);
+        dbhandler.addBookmark(news3);
 
         //Test in model: is bookmarked should be true
         assertEquals(news1.isBookmarked(), true);
@@ -91,7 +88,7 @@ public class DatabaseHandlerTest {
         assertEquals(news3.isBookmarked(), true);
 
         //Test in database: bookmarked row should be true
-        List<News> listBookmark = db.getAllBookmarkedNews();
+        List<News> listBookmark = dbhandler.getAllBookmarkedNews();
 
         assertEquals(listBookmark.size(), 3);
         assertEquals(listBookmark.get(0).getTitle().equals("test1"), true);
@@ -113,11 +110,11 @@ public class DatabaseHandlerTest {
         news3.setTitle("test3");
         news3.setLink("linkTest3");
 
-        db.addBookmark(news1);
-        db.addBookmark(news2);
-        db.addBookmark(news3);
+        dbhandler.addBookmark(news1);
+        dbhandler.addBookmark(news2);
+        dbhandler.addBookmark(news3);
 
-        db.deleteBookmark(news1);
+        dbhandler.deleteBookmark(news1);
 
         //Test in model: is bookmarked should be true, except news1
         assertEquals(news1.isBookmarked(), false);
@@ -125,7 +122,7 @@ public class DatabaseHandlerTest {
         assertEquals(news3.isBookmarked(), true);
 
         //Test in database: bookmarked row should be true
-        List<News> listBookmark = db.getAllBookmarkedNews();
+        List<News> listBookmark = dbhandler.getAllBookmarkedNews();
 
         assertEquals(listBookmark.size(), 2);
         assertEquals(listBookmark.get(0).getTitle().equals("test2"), true);
