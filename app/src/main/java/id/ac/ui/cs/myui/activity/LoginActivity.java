@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.content.Intent;
 
 import id.ac.ui.cs.myui.R;
+import id.ac.ui.cs.myui.task.NewsSceleTask;
 
 /**
  * This class defining Login page Logic
@@ -34,5 +35,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
     }
 }

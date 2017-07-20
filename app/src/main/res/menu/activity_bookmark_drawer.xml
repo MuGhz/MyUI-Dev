@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/news_feed_menu_drawer"
+            android:title="News Feed" />
+        <item
+            android:id="@+id/jadwal_lab_menu_drawer"
+            android:title="Jadwal Lab" />
+        <item
+            android:id="@+id/booking_asisten_menu_drawer"
+            android:title="Booking Asisten" />
+        <item
+            android:id="@+id/knowledge_sharing_menu_drawer"
+            android:title="Knowledge Sharing" />
+        <item
+            android:id="@+id/bookmark_menu_drawer"
+            android:title="Bookmark" />
+
+    </group>
+
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Send" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>

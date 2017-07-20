@@ -3,6 +3,7 @@ package id.ac.ui.cs.myui.model;
 import org.junit.Before;
 import org.junit.Test;
 
+
 import id.ac.ui.cs.myui.factory.NewsFactory;
 
 import static junit.framework.Assert.assertEquals;
@@ -27,68 +28,46 @@ public class NewsUnitTest {
 
     @Test
     public void getNewsTitle() throws Exception {
-        assertEquals(newsTitle, news.getNewsTitle());
+        assertEquals(newsTitle, news.getTitle());
     }
 
     @Test
     public void getNewsContent() throws Exception {
-        assertEquals(newsContent, news.getNewsContent());
+        assertEquals(newsContent, news.getDescription());
     }
 
     @Test
     public void getNewsDate() throws Exception {
-        assertEquals(newsDate, news.getNewsDate());
-    }
-
-    @Test
-    public void getNewsDateEdited() throws Exception {
-        assertEquals(newsDateEdited, news.getNewsDateEdited());
+        assertEquals(newsDate, news.getTanggal());
     }
 
     @Test
     public void getNewsSubmitBy() throws Exception {
-        assertEquals(newsSubmitBy, news.getNewsSubmitBy());
-    }
-
-    @Test
-    public void getNewsEditedBy() throws Exception {
-        assertEquals(newsEditedBy, news.getNewsEditedBy());
+        assertEquals(newsSubmitBy, news.getPenulis());
     }
 
     @Test
     public void setNewsTitle() throws Exception {
-        news.setNewsTitle("a");
-        assertEquals("a", news.getNewsTitle());
+        news.setTitle("a");
+        assertEquals("a", news.getTitle());
     }
 
     @Test
     public void setNewsContent() throws  Exception {
-        news.setNewsContent("a");
-        assertEquals("a", news.getNewsContent());
+        news.setDescription("a");
+        assertEquals("a", news.getDescription());
     }
 
     @Test
     public void setNewsDate() throws Exception {
-        news.setNewsDate("a");
-        assertEquals("a", news.getNewsDate());
-    }
-
-    @Test
-    public void setNewsDateEdited() throws Exception {
-        news.setNewsDateEdited("a");
-        assertEquals("a", news.getNewsDateEdited());
+        news.setTanggal("a");
+        assertEquals("a", news.getTanggal());
     }
 
     @Test
     public void setNewsSubmitBy() throws Exception {
-        news.setNewsSubmitBy("a");
-        assertEquals("a", news.getNewsSubmitBy());
-    }
-
-    @Test
-    public void setNewsEditedBy() throws Exception {
-        news.setNewsEditedBy("a");
-        assertEquals("a", news.getNewsEditedBy());
+        news.setPenulis("a");
+        assertEquals("a", news.getPenulis());
     }
 
     @Test
@@ -99,7 +78,7 @@ public class NewsUnitTest {
 
     @Test
     public void setId() throws Exception {
-        news.setId("a");
-        assertEquals("a", news.getId());
+        news.setId(1);
+        assertEquals(1, news.getId());
     }
 }
