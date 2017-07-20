@@ -39,7 +39,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         final String link = getIntent().getStringExtra("link");
         parent = getIntent().getStringExtra("contextParent");
 
-
+        Log.d("desc",description);
         TextView pubDate = (TextView) findViewById(R.id.pubdate);
         TextView news_title = (TextView) findViewById(R.id.news_title);
         TextView news_author = (TextView) findViewById(R.id.news_author);

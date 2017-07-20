@@ -88,7 +88,7 @@ public class ItemNews {
     }
 
     public String stripHtml(String html) {
-       return Html.fromHtml(html).toString().replaceAll("\n", "").trim();
+        return Html.fromHtml(html).toString().replaceAll("\n", "").trim();
     }
 
     public String getContent(){
