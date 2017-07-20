@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import id.ac.ui.cs.myui.R;
+import id.ac.ui.cs.myui.task.NewsSceleTask;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
