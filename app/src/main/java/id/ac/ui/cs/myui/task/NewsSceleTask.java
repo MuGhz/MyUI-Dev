@@ -45,7 +45,7 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 .baseUrl("https://scele.cs.ui.ac.id/")
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .build();
-        Log.i("test", "masuk sini");
+
         NewsService service = client.create(NewsService.class);
 
         Call<NewsScele> call = service.listNewsScele();
@@ -55,7 +55,7 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
 
         try {
             posts = call.execute();
-            Log.d("XXX","isinya "+posts.body());
+
             ArrayList<ItemNews> itemNews = posts.body().getChannel().item;
 
             ArrayList<News> news = new ArrayList<>();
@@ -67,9 +67,10 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 String link = itemNews.get(i).getLink();
                 String tanggal = itemNews.get(i).getPubdate();
                 String penulis = itemNews.get(i).getPenulis();
-                news.add(new News(title,desc,link,i,tanggal,penulis));
+
+                news.add(new News(title,desc,link,tanggal,penulis));
             }
-            Log.i("DEBUG NEWS SCELE TASK", "doInBackground: " + news.get(0).getDescription() + " desc");
+
             return news;
 
         } catch (IOException e) {
@@ -87,23 +88,43 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
         ArrayList<News> listMenuItems = newsSceles;
         final NewsAdapter listMenuAdapter = new NewsAdapter(context, R.layout.news_item_layout, listMenuItems);
         listView.setAdapter(listMenuAdapter);
+        final Intent intent = new Intent(context, NewsDetailActivity.class);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                News value = (News) adapterView.getItemAtPosition(i);
-
-                Intent intent = new Intent(context, NewsDetailActivity.class);
-                intent.putExtra("title",value.getTitle());
-                intent.putExtra("pubDate",value.getTanggal());
-                intent.putExtra("content",value.getDescription());
-                intent.putExtra("author",value.getPenulis());
-                intent.putExtra("link",value.getLink()+"");
-                intent.putExtra("id",value.getId());
+                String title = listMenuAdapter.getItem(i).getTitle();
+                String description = listMenuAdapter.getItem(i).getDescription();
+                String tanggal = listMenuAdapter.getItem(i).getTanggal();
+                String penulis = listMenuAdapter.getItem(i).getPenulis();
+                String link = listMenuAdapter.getItem(i).getLink();
+                intent.putExtra("Description", description);
+                intent.putExtra("Tanggal", tanggal);
+                intent.putExtra("Penulis", penulis);
+                intent.putExtra("Judul", title);
+                intent.putExtra("link", link);
+                intent.putExtra("contextParent", "newsHome");
 
                 context.startActivity(intent);
             }
         });
+
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                News value = (News) adapterView.getItemAtPosition(i);
+//
+//                Intent intent = new Intent(context, NewsDetailActivity.class);
+//                intent.putExtra("title",value.getTitle());
+//                intent.putExtra("pubDate",value.getTanggal());
+//                intent.putExtra("content",value.getDescription());
+//                intent.putExtra("author",value.getPenulis());
+//                intent.putExtra("link",value.getLink()+"");
+//                intent.putExtra("id",value.getId());
+//
+//                context.startActivity(intent);
+//            }
+//        });
 
         }
 }
