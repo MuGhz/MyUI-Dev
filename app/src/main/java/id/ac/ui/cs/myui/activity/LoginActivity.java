@@ -41,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d("On create", "log in");
         setContentView(R.layout.activity_login);
-
         //set title bar
         setTitle("Halaman Login");
 

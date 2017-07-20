@@ -11,10 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.LoginActivity"
-           android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="true">
-        <activity android:name=".activity.LoginActivity"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:fullBackupContent="true">
+        </activity>
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.DetailActivity" />
         <activity android:name=".activity.NewsDetailActivity" />
