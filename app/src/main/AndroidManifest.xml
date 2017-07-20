@@ -36,6 +36,9 @@
             android:label="@string/title_activity_bookmark"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="99acc7a22ccc8b155fab53154477e9752b4604ba" />
     </application>
 
 </manifest>

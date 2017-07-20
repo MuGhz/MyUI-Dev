@@ -33,6 +33,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     public static
     Context context;
     ImageButton ibShareLine;
+    ImageButton ibShare;
     ImageButton ibShareWA;
 
     DatabaseHandler databaseHandler;
@@ -58,6 +59,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
 
         ibShareLine = (ImageButton) findViewById(R.id.button_line);
+        ibShare = (ImageButton) findViewById(R.id.button_share);
         ibShareWA = (ImageButton) findViewById(R.id.button_wa);
 
         Log.d("desc",description);
@@ -103,6 +105,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         }
 
         final String snippet = sendString + "...";
+
         ibShareLine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,7 +117,6 @@ public class NewsDetailActivity extends AppCompatActivity {
                             + "\n" + snippet + "\n\nSelengkapnya : \n" + link;
                     intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject/Title");
                     intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
-                    //startActivity(Intent.createChooser(intent, "Choose sharing method"));
                     startActivity(intent);
                 } else {
                     Toast.makeText(context, "LINE tidak terdeteksi, silahkan install terlebih dahulu", Toast.LENGTH_SHORT).show();
