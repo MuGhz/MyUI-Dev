@@ -1,13 +1,11 @@
 package id.ac.ui.cs.myui.model;
 
+import android.os.Build;
 import android.text.Html;
-import android.util.Log;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Path;
 import org.simpleframework.xml.Root;
-
-import java.util.Date;
 
 /**
  * Created by agni.wira on 17/07/17.
@@ -88,7 +86,12 @@ public class ItemNews {
     }
 
     public String stripHtml(String html) {
-        return Html.fromHtml(html).toString().replaceAll("\n", "").trim();
+        if (Build.VERSION.SDK_INT >= 24) {
+            return Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY).toString();
+        } else {
+            return Html.fromHtml(html).toString();
+        }
+      
     }
 
     public String getContent(){
