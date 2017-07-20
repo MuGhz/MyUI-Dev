@@ -91,7 +91,6 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
         final Intent intent = new Intent(context, NewsDetailActivity.class);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String title = listMenuAdapter.getItem(i).getTitle();
@@ -110,5 +109,22 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
             }
         });
 
-    }
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                News value = (News) adapterView.getItemAtPosition(i);
+//
+//                Intent intent = new Intent(context, NewsDetailActivity.class);
+//                intent.putExtra("title",value.getTitle());
+//                intent.putExtra("pubDate",value.getTanggal());
+//                intent.putExtra("content",value.getDescription());
+//                intent.putExtra("author",value.getPenulis());
+//                intent.putExtra("link",value.getLink()+"");
+//                intent.putExtra("id",value.getId());
+//
+//                context.startActivity(intent);
+//            }
+//        });
+
+        }
 }
