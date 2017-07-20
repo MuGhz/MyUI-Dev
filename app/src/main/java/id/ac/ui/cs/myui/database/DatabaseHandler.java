@@ -23,7 +23,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "MyUI.db";
 
     // User table name
-    private static final String TABLE_NEWS = "news";
+    private static final String TABLE_NEWS = "bookmark_news";
 
     // User Table Columns names
     private static final String COLUMN_ID = "id";
@@ -67,7 +67,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
 
     }
-    public void addNews(News news){
+
+    public void addBookmark(News news){
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -77,12 +78,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(COLUMN_TANGGAL, news.getTanggal());
         values.put(COLUMN_PENULIS, news.getPenulis());
         values.put(COLUMN_LINK,news.getLink());
-
-        if(news.isBookmarked() ){
-            values.put(COLUMN_BOOKMARKED, 1);
-        } else {
-            values.put(COLUMN_BOOKMARKED, 0);
-        }
+        values.put(COLUMN_BOOKMARKED, 1);
+        news.setBookmarked(true);
 
         // Inserting Row
         db.insert(TABLE_NEWS, null, values);
@@ -100,6 +97,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(COLUMN_LINK,news.getLink());
         if(news.isBookmarked() ){
             values.put(COLUMN_BOOKMARKED, 0);
+
         } else {
             values.put(COLUMN_BOOKMARKED, 1);
         }
@@ -107,6 +105,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.update(TABLE_NEWS, values, COLUMN_ID + " = ?",
                 new String[]{String.valueOf(news.getId())});
         db.close();
+    }
+    public void deleteBookmark(News news){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NEWS,COLUMN_LINK +" = '"+news.getLink() +"'",null);
+        news.setBookmarked(false);
     }
 
     /**
@@ -163,9 +166,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     news.setBookmarked(false);
                 }
 
-
-                // Adding user record to list
-               if (news.isBookmarked()){
+                if (news.isBookmarked()){
                     bookmarkedNewsList.add(news);
                 }
 

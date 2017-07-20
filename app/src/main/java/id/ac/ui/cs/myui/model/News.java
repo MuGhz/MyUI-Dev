@@ -1,8 +1,13 @@
 package id.ac.ui.cs.myui.model;
 
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by agni.wira on 18/07/17.
  */
+
 
 public class News {
     private String title;
@@ -13,10 +18,11 @@ public class News {
     private String penulis;
     private boolean bookmarked;
 
-    public News(){
-        this.bookmarked=false;
+    public News() {
+        this.bookmarked = false;
 
     }
+
     public News(String title, String description, String link, String tanggal, String penulis) {
         this.title = title;
         this.description = description;
@@ -25,15 +31,6 @@ public class News {
         this.penulis = penulis;
         this.bookmarked = false;
     }
-
-    public boolean isBookmarked() {
-        return bookmarked;
-    }
-
-    public void setBookmarked(boolean bookmarked) {
-        this.bookmarked = bookmarked;
-    }
-
 
     public String getTitle() {
         return title;
@@ -82,5 +79,13 @@ public class News {
     public void setPenulis(String penulis) {
         this.penulis = penulis;
     }
-}
 
+    public boolean isBookmarked() {
+        return bookmarked;
+    }
+
+    public void setBookmarked(boolean bookmarked) {
+        this.bookmarked = bookmarked;
+    }
+
+}

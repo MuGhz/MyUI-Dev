@@ -55,48 +55,58 @@ public class DatabaseHandlerTest {
         news2.setTitle("test2");
         news3.setTitle("test3");
 
-        news1.setBookmarked(true);
-        news2.setBookmarked(true);
+        db.addBookmark(news1);
+        db.addBookmark(news2);
+        db.addBookmark(news3);
 
-        db.addNews(news1);
-        db.addNews(news2);
-        db.addNews(news3);
+        //Test in model: is bookmarked should be true
+        assertEquals(news1.isBookmarked(), true);
+        assertEquals(news2.isBookmarked(), true);
+        assertEquals(news3.isBookmarked(), true);
 
+        //Test in database: bookmarked row should be true
         List<News> listBookmark = db.getAllBookmarkedNews();
-        //Log.i("list1", listBookmark.get(0).toString());
-        //Log.i("list2", listBookmark.get(2).toString());
-        assertEquals(listBookmark.size(), 2);
+
+        assertEquals(listBookmark.size(), 3);
         assertEquals(listBookmark.get(0).getTitle().equals("test1"), true);
         assertEquals(listBookmark.get(1).getTitle().equals("test2"), true);
+        assertEquals(listBookmark.get(2).getTitle().equals("test3"), true);
 
     }
 
     @Test
-    public void updateBookmarkTest(){
+    public void unBookmarkTest(){
         News news1 = new News();
         News news2 = new News();
         News news3 = new News();
 
         news1.setTitle("test1");
+        news1.setLink("linkTest1");
         news2.setTitle("test2");
+        news2.setLink("linkTest2");
         news3.setTitle("test3");
+        news3.setLink("linkTest3");
 
-        news1.setBookmarked(true);
-        news2.setBookmarked(true);
-        news3.setBookmarked(true);
+        db.addBookmark(news1);
+        db.addBookmark(news2);
+        db.addBookmark(news3);
 
-        db.addNews(news1);
-        db.addNews(news2);
-        db.addNews(news3);
+        db.deleteBookmark(news1);
 
+        //Test in model: is bookmarked should be true, except news1
+        assertEquals(news1.isBookmarked(), false);
+        assertEquals(news2.isBookmarked(), true);
+        assertEquals(news3.isBookmarked(), true);
+
+        //Test in database: bookmarked row should be true
         List<News> listBookmark = db.getAllBookmarkedNews();
 
-        assertEquals(3, listBookmark.size());
-
-        db.updateBookmark(listBookmark.get(1));
-        listBookmark = db.getAllBookmarkedNews();
-
-        assertEquals(2,listBookmark.size());
-
+        assertEquals(listBookmark.size(), 2);
+        assertEquals(listBookmark.get(0).getTitle().equals("test2"), true);
+        assertEquals(listBookmark.get(1).getTitle().equals("test3"), true);
+//
     }
+//
+//    public void
+
 }
