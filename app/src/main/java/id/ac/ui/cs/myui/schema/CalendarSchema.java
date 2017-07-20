@@ -1,4 +1,4 @@
-package schema;
+package id.ac.ui.cs.myui.schema;
 
 import android.provider.BaseColumns;
 

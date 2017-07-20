@@ -12,12 +12,11 @@ import com.google.gson.Gson;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import id.ac.ui.cs.myui.model.CalendarItem;
 
-import schema.CalendarSchema;
+import id.ac.ui.cs.myui.schema.CalendarSchema;
 
 /**
  * Created by siti.ina on 18/07/17.
