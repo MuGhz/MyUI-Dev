@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,21 +13,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
 import java.util.ArrayList;
 
 import id.ac.ui.cs.myui.R;
-import id.ac.ui.cs.myui.model.ListCalendarItem;
-
+import id.ac.ui.cs.myui.model.CalendarItem;
 /**
  * Created by Ivan on 7/17/17.
  */
 
 public class ListCalendarAdapter extends ArrayAdapter {
     private final LayoutInflater layoutInflater;
-    private ArrayList<ListCalendarItem> listCalendarItems;
+    //private final LinearLayout layout;;
+    private ArrayList<CalendarItem> listCalendarItems;
+    private LinearLayout layout;
 
-
-    public ListCalendarAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<ListCalendarItem> listCalendarItems) {
+    public ListCalendarAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<CalendarItem> listCalendarItems) {
         super(context, resource, listCalendarItems);
         this.layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.listCalendarItems = listCalendarItems;
@@ -39,30 +41,34 @@ public class ListCalendarAdapter extends ArrayAdapter {
 
     @Nullable
     @Override
-    public ListCalendarItem getItem(int position) {
+    public CalendarItem getItem(int position) {
         return listCalendarItems.get(position);
     }
 
-    public int getPosition(@Nullable ListCalendarItem item) {
+    public int getPosition(@Nullable CalendarItem item) {
         return listCalendarItems.indexOf(item);
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LinearLayout layout;
-        if (convertView == null)
+    public View getView(int position, @Nullable View convertView, ViewGroup parent) {
+//        Log.d("tes", "masuk");
+        if (convertView == null) {
             layout = (LinearLayout) layoutInflater.inflate(R.layout.content_calender, parent, false);
+        }
+
         else
             layout = (LinearLayout) convertView;
+
+        CalendarItem listCalendarItem = listCalendarItems.get(position);
+
         TextView label = (TextView) layout.findViewById(R.id.calendarItem_label);
-        TextView desc = (TextView) layout.findViewById(R.id.calendarItem_desc);
+        TextView tanggalMulai = (TextView) layout.findViewById(R.id.tanggalnyamulai);
+        TextView tanggalSelesai = (TextView) layout.findViewById(R.id.tanggalnyaselesai);
         layout.setId(position);
 
-        ListCalendarItem listCalendarItem = listCalendarItems.get(position);
-
         label.setText(listCalendarItem.getNamaKegiatan());
-        desc.setText(listCalendarItem.getTanggalKegiatan());
+        tanggalMulai.setText(listCalendarItem.getTanggalMulai());
+        tanggalSelesai.setText(listCalendarItem.getTanggalSelesai());
         return layout;
     }
 }

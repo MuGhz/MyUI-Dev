@@ -6,4 +6,5 @@
     <dimen name="label_font_size">20sp</dimen>
     <dimen name="desc_font_size">12sp</dimen>
     <dimen name="title_font_size">24sp</dimen>
+    <dimen name="small_label_font_size">14sp</dimen>
 </resources>
