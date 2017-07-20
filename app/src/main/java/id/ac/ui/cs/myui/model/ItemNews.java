@@ -1,5 +1,6 @@
 package id.ac.ui.cs.myui.model;
 
+import android.os.Build;
 import android.text.Html;
 import android.util.Log;
 
@@ -87,6 +88,15 @@ public class ItemNews {
         return penulis[1];
     }
 
+    public String stripHtml(String html) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY).toString();
+        } else {
+            return Html.fromHtml(html).toString();
+        }
+
+    }
+
     public String getContent(){
         String raw = getDescription();
         String [] subRaw = raw.split("\\. ");
@@ -96,8 +106,7 @@ public class ItemNews {
             akhir += subRaw[i];
         }
 
-        return akhir;
+        return stripHtml(akhir);
 
     }
 }
-
