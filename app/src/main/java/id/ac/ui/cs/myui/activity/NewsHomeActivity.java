@@ -1,11 +1,11 @@
 package id.ac.ui.cs.myui.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.util.Log;
+
 import android.widget.FrameLayout;
-import android.widget.ListView;
+
 
 import id.ac.ui.cs.myui.R;
 import id.ac.ui.cs.myui.task.NewsSceleTask;
@@ -21,6 +21,7 @@ public class NewsHomeActivity extends BookmarkActivity{
         getLayoutInflater().inflate(R.layout.activity_news_home, contentFrameLayout);
 
         new NewsSceleTask(this).execute();
+
     }
 
     @Override
@@ -29,5 +30,6 @@ public class NewsHomeActivity extends BookmarkActivity{
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+
     }
 }

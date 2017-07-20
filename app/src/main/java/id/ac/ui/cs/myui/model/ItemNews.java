@@ -91,7 +91,7 @@ public class ItemNews {
         } else {
             return Html.fromHtml(html).toString();
         }
-       //return Html.fromHtml(html).toString().replaceAll("\n", "").trim();
+      
     }
 
     public String getContent(){

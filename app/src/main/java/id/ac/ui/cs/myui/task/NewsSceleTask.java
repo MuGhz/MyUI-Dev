@@ -19,6 +19,7 @@ import id.ac.ui.cs.myui.R;
 import id.ac.ui.cs.myui.activity.NewsDetailActivity;
 import id.ac.ui.cs.myui.activity.NewsHomeActivity;
 import id.ac.ui.cs.myui.adapter.NewsAdapter;
+import id.ac.ui.cs.myui.model.ItemNews;
 import id.ac.ui.cs.myui.model.News;
 import id.ac.ui.cs.myui.model.NewsScele;
 import id.ac.ui.cs.myui.service.NewsService;
@@ -54,17 +55,18 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
 
         try {
             posts = call.execute();
-            Log.d("githubagni", ((posts.body()).getChannel().item).get(0).getPenulis()+"ayam");
+
+            ArrayList<ItemNews> itemNews = posts.body().getChannel().item;
 
             ArrayList<News> news = new ArrayList<>();
 
 
-            for (int i=0; i<((posts.body()).getChannel().item).size(); i++){
-                String title = (posts.body()).getChannel().item.get(i).getTitle();
-                String desc = (posts.body()).getChannel().item.get(i).getContent();
-                String link = (posts.body()).getChannel().item.get(i).getLink();
-                String tanggal = (posts.body()).getChannel().item.get(i).getPubdate();
-                String penulis = (posts.body()).getChannel().item.get(i).getPenulis();
+            for (int i=0; i<itemNews.size(); i++){
+                String title = itemNews.get(i).getTitle();
+                String desc = itemNews.get(i).getContent();
+                String link = itemNews.get(i).getLink();
+                String tanggal = itemNews.get(i).getPubdate();
+                String penulis = itemNews.get(i).getPenulis();
 
                 news.add(new News(title,desc,link,tanggal,penulis));
             }
@@ -86,7 +88,6 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
         ArrayList<News> listMenuItems = newsSceles;
         final NewsAdapter listMenuAdapter = new NewsAdapter(context, R.layout.news_item_layout, listMenuItems);
         listView.setAdapter(listMenuAdapter);
-
         final Intent intent = new Intent(context, NewsDetailActivity.class);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -104,6 +105,7 @@ public class NewsSceleTask extends AsyncTask<Object,Object,ArrayList<News>> {
                 intent.putExtra("Judul", title);
                 intent.putExtra("link", link);
                 intent.putExtra("contextParent", "newsHome");
+
                 context.startActivity(intent);
             }
         });
