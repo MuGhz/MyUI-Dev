@@ -28,7 +28,7 @@ public class JadwalFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_calender, container, false);
+        View rootView = inflater.inflate(R.layout.activity_calendar, container, false);
         db = new DatabaseHelper(getActivity().getApplicationContext());
         final ListView calendarList = (ListView) getView().findViewById(R.id.list_tanggal);
         final List<CalendarItem> myCal = db.getAllParentMenu();

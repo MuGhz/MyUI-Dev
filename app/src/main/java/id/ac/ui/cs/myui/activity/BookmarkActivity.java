@@ -68,6 +68,11 @@ public class BookmarkActivity extends AppCompatActivity
                         startActivity(anIntent1);
                         drawerLayout.closeDrawers();
                         break;
+                    case R.id.kalender_akademik_drawer:
+                        Intent anIntent2 = new Intent(getApplicationContext(), CalendarActivity.class);
+                        startActivity(anIntent2);
+                        drawerLayout.closeDrawers();
+                        break;
 
                 }
                 return false;
