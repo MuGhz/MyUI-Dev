@@ -1,83 +1,83 @@
 package id.ac.ui.cs.myui.model;
 
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
- * Created by Ivan on 7/18/17.
+ * Created by agni.wira on 18/07/17.
  */
 
+
 public class News {
-    private String id;
-    private String newsTitle;
-    private String newsContent;
-    private String newsDate;
-    private String newsDateEdited;
-    private String newsSubmitBy;
-    private String newsEditedBy;
+    private String title;
+    private String description;
+    private String link;
+    private long id;
+    private String tanggal;
+    private String penulis;
     private boolean bookmarked;
 
-    public News(String newsTitle, String newsContent, String newsDate, String newsDateEdited, String newsSubmitBy, String newsEditedBy) {
-        this.newsTitle = newsTitle;
-        this.newsContent = newsContent;
-        this.newsDate = newsDate;
-        this.newsDateEdited = newsDateEdited;
-        this.newsSubmitBy = newsSubmitBy;
-        this.newsEditedBy = newsEditedBy;
+    public News() {
+        this.bookmarked = false;
+
+    }
+
+    public News(String title, String description, String link, String tanggal, String penulis) {
+        this.title = title;
+        this.description = description;
+        this.link = link;
+        this.tanggal = tanggal;
+        this.penulis = penulis;
         this.bookmarked = false;
     }
 
-    public String getId() {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getNewsTitle() {
-        return newsTitle;
+    public String getTanggal() {
+        return tanggal;
     }
 
-    public void setNewsTitle(String newsTitle) {
-        this.newsTitle = newsTitle;
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 
-    public String getNewsContent() {
-        return newsContent;
+    public String getPenulis() {
+        return penulis;
     }
 
-    public void setNewsContent(String newsContent) {
-        this.newsContent = newsContent;
-    }
-
-    public String getNewsDate() {
-        return newsDate;
-    }
-
-    public void setNewsDate(String newsDate) {
-        this.newsDate = newsDate;
-    }
-
-    public String getNewsDateEdited() {
-        return newsDateEdited;
-    }
-
-    public void setNewsDateEdited(String newsDateEdited) {
-        this.newsDateEdited = newsDateEdited;
-    }
-
-    public String getNewsSubmitBy() {
-        return newsSubmitBy;
-    }
-
-    public void setNewsSubmitBy(String newsSubmitBy) {
-        this.newsSubmitBy = newsSubmitBy;
-    }
-
-    public String getNewsEditedBy() {
-        return newsEditedBy;
-    }
-
-    public void setNewsEditedBy(String newsEditedBy) {
-        this.newsEditedBy = newsEditedBy;
+    public void setPenulis(String penulis) {
+        this.penulis = penulis;
     }
 
     public boolean isBookmarked() {
@@ -87,4 +87,5 @@ public class News {
     public void setBookmarked(boolean bookmarked) {
         this.bookmarked = bookmarked;
     }
+
 }
