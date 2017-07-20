@@ -1,19 +1,36 @@
 package id.ac.ui.cs.myui;
 
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
+import android.view.View;
+import android.widget.ListView;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
 import id.ac.ui.cs.myui.activity.NewsHomeActivity;
 
+import java.util.ArrayList;
+
+import id.ac.ui.cs.myui.activity.BookmarkNewsActivity;
+import id.ac.ui.cs.myui.activity.LoginActivity;
+import id.ac.ui.cs.myui.activity.NewsHomeActivity;
+import id.ac.ui.cs.myui.adapter.NewsAdapter;
+import id.ac.ui.cs.myui.model.News;
+
+import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
 import static android.support.test.espresso.matcher.ViewMatchers.isClickable;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.Visibility.VISIBLE;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.is;
@@ -24,6 +41,8 @@ import static org.hamcrest.Matchers.not;
  */
 
 public class BookmarkInstrumentedTest {
+
+    ListView listView;
     @Rule
     public ActivityTestRule<NewsHomeActivity> mActivityRule = new ActivityTestRule(NewsHomeActivity.class);
 
@@ -31,10 +50,11 @@ public class BookmarkInstrumentedTest {
     @Test
     public void listviewBookmarkIsExist() {
         onView(withId(R.id.list_news)).check(matches(isDisplayed()));
+        //onView(withId(R.id.list_bookmark)).check(matches(withEffectiveVisibility(VISIBLE)));
     }
 
     @Test
-    public void moveToDetailNews() {
+    public void bookmarkNews() {
         onView(withId(R.id.list_news)).perform(click());
         try {
             Thread.sleep(2000);
@@ -63,5 +83,4 @@ public class BookmarkInstrumentedTest {
 
 
     }
-
 }
