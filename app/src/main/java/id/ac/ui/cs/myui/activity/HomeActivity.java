@@ -1,9 +1,15 @@
 package id.ac.ui.cs.myui.activity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -22,7 +28,10 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("ON CREATE", "Home activity");
+        sessionDebugger();
         setContentView(R.layout.activity_home);
+
         final MainFragment mainFragment = new MainFragment();
         //By default, use MainFragment
         getSupportFragmentManager().beginTransaction()
@@ -54,5 +63,23 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        SharedPreferences sp= PreferenceManager.getDefaultSharedPreferences(this);
+        getIntent().putExtra("username", sp.getString("username", "password"));
+        Log.d("ON RESUME EXTRA", getIntent().getStringExtra("username"));
+    }
+
+    public void sessionDebugger() {
+        SharedPreferences sp=getSharedPreferences("login",MODE_PRIVATE);
+
+        if(sp.contains("username") && sp.contains("password")){
+            Log.d("SESSION", sp.getString("username", "password"));
+
+        }
     }
 }
