@@ -71,7 +71,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
+    
+    //lempar ke webview akun.cs
     void loginCheck() {
         username = etUsername.getText().toString();
         password = etPassword.getText().toString();
@@ -97,6 +98,14 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             return;
         }
+        
+        //token = json dari backend url
+        
+        //1. lempar url ke akun.cs (webview)
+        //2. user kirim username dan password di webview
+        //3. user akan authorize applikasi myUI
+        //4. Akun.cs akan melempar sebuah authorization code ke url
+        //5. aplikasi akan mengambil data dari url
 
 
     }
