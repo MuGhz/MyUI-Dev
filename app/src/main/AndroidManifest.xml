@@ -11,19 +11,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LoginActivity">
-
-        </activity>
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.DetailActivity" />
-        <activity android:name=".activity.NewsDetailActivity" />
-        <activity android:name=".activity.NewsHomeActivity">
+        <activity android:name=".activity.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="myapp" android:host="oauthresponse"/>
         </activity>
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.DetailActivity" />
+        <activity android:name=".activity.NewsDetailActivity" />
+        <activity android:name=".activity.NewsHomeActivity" />
+
+        <service android:name=".service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".service.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!--<activity android:name=".activity.TestActivity"></activity>-->
     </application>
 
 </manifest>
